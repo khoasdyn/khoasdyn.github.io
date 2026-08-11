@@ -84,6 +84,9 @@
   --border:        var(--zinc-200);
 
   --text:          var(--zinc-900);   /* headings and primary copy */
+  /* Inline links in case study copy. lime-600 is only 3.1:1 on white, so
+     links use lime-700 at 5.4:1 instead. */
+  --link:          var(--lime-700);
   --text-muted:    var(--zinc-600);
   --text-subtle:   var(--zinc-500);   /* education sub-labels */
   /* Figma specifies zinc-400 for dates, but that is 2.6:1 on white and fails
@@ -654,6 +657,14 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   font-size: var(--text-xl);
   line-height: var(--lh-xl);
   font-weight: 400;
+}
+
+/* Links inside body copy. Everywhere else on the site a link is a whole
+   card or button, so this is the only place an inline link appears. */
+.cs-prose a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .cs-badge {
