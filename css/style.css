@@ -91,6 +91,9 @@
   --text-meta:     var(--zinc-500);   /* dates */
 
   /* ---- Type scale (Figma) ---- */
+  /* --lh-sm is already taken by display-sm, so text-sm's line height is
+     --lh-tsm. It is only used by the case study tags. */
+  --text-sm:    14px;  --lh-tsm:   20px;
   --text-md:    16px;  --lh-md:    24px;
   --text-lg:    18px;  --lh-lg:    28px;
   --text-xl:    20px;  --lh-xl:    30px;
@@ -109,6 +112,13 @@
   --gap-section: 8px;   /* between the dark-separated cards */
   --pad-x: 48px;
   --pad-y: 64px;
+  /* Case study body blocks sit taller than the homepage cards */
+  --pad-y-case: 80px;
+  --pad-x-quote: 200px;
+
+  /* The mockup on the case study cover floats above its backdrop. Figma
+     specifies zinc-950 at 14%, which is what the color-mix resolves to. */
+  --shadow-mockup: 0 75px 150px color-mix(in srgb, var(--page) 14%, transparent);
 
   --font-display: "Alan Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body: "Google Sans Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -262,6 +272,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 }
 .icon-32 { width: 32px; height: 32px; }
 
+.i-chevron-left { --icon-url: url("../assets/duotone-icons/arrows/chevron-left.svg"); }
 .i-folder    { --icon-url: url("../assets/duotone-icons/files/folder.svg"); }
 .i-file      { --icon-url: url("../assets/duotone-icons/files/file-attachment-05.svg"); }
 .i-briefcase { --icon-url: url("../assets/duotone-icons/education/briefcase-01.svg"); }
@@ -552,6 +563,161 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 .contact-linkedin { color: var(--brand-linkedin); }
 
 /* =========================================================
+   Case study page
+
+   Only used by the case study pages, never by the homepage.
+   Every block below is a `.section` card first, so the page
+   keeps the same rounded-card rhythm and 8px gap as index.html.
+   ========================================================= */
+
+/* Sits on the dark page above the first card, so it carries its
+   own white surface rather than living inside a section. */
+.back-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius-xl);
+  /* Asymmetric on purpose: the chevron already carries its own
+     optical space on the left, so the label gets the wider side. */
+  padding: 12px 24px 12px 16px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-md);
+  line-height: var(--lh-md);
+  text-decoration: none;
+  transition: background .15s ease;
+}
+.back-btn:hover { background: var(--surface-muted); }
+
+/* ---- Title card ---- */
+.cs-title {
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Not the hero `.badge`: this one is smaller, set in the body font, and
+   must keep its pill shape at every width, which `.badge` gives up below
+   700px so the hero lede can wrap as running text. */
+.tag {
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: var(--lh-tsm);
+}
+
+.cs-title-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.cs-title h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--display-sm);
+  line-height: var(--lh-sm);
+  letter-spacing: -0.02em;
+}
+.cs-title-text p {
+  font-size: var(--text-xl);
+  line-height: var(--lh-xl);
+  font-weight: 400;
+}
+
+/* ---- Cover ----
+   A 16:9 backdrop holding a 2880x1800 mockup. The padding is in percent
+   so both boxes scale together: at any width the inner shot is 75% wide,
+   which is exactly the height the 16:9 box has left after the padding.
+   Swapping either number for a pixel value breaks that fit. */
+.cs-cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+  background: var(--surface-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.6875% 12.5%;
+}
+.cs-cover-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cs-cover-shot {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2880 / 1800;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-mockup);
+}
+.cs-cover-shot img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- Body blocks ----
+   The four variants of the Project Overview Section component. */
+.cs-block { padding: var(--pad-y-case) var(--pad-x); }
+
+/* Paragraph stack. The 24px gap is the spacing between paragraphs
+   inside one block, not between blocks. */
+.cs-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: var(--text-xl);
+  line-height: var(--lh-xl);
+  font-weight: 400;
+}
+
+.cs-badge {
+  align-self: flex-start;
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--display-xs);
+  line-height: var(--lh-xs);
+}
+
+.cs-quote { padding: var(--pad-y-case) var(--pad-x-quote); }
+.cs-quote p {
+  font-size: var(--display-xs);
+  line-height: var(--lh-xs);
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Full-bleed 16:9 image. No white card around it, the image is the card. */
+.cs-figure {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+  background: var(--surface-muted);
+}
+.cs-figure img { width: 100%; height: 100%; object-fit: cover; }
+
+/* =========================================================
    Responsive
 
    There is no mobile design yet, so these breakpoints keep the
@@ -560,7 +726,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 
 /* Laptop: tighten the generous desktop padding */
 @media (max-width: 1200px) {
-  :root { --pad-x: 32px; --pad-y: 48px; }
+  :root { --pad-x: 32px; --pad-y: 48px; --pad-y-case: 64px; --pad-x-quote: 120px; }
   .contact-card { font-size: var(--text-md); }
 }
 
@@ -571,6 +737,10 @@ h3 { font-family: var(--font-display); font-weight: 500; }
     --display-sm: 26px; --lh-sm:  34px;
     --display-xs: 20px; --lh-xs:  30px;
     --text-xl:    18px; --lh-xl:  28px;
+    --pad-y-case: 48px; --pad-x-quote: 64px;
+    /* The mockup shadow is specified for a 1440px canvas. Left alone it
+       swamps a narrow screen, so it steps down with the layout. */
+    --shadow-mockup: 0 40px 80px color-mix(in srgb, var(--page) 14%, transparent);
   }
   .about-row { flex-direction: column; }
   .about-photo { aspect-ratio: 16 / 10; width: 100%; }
@@ -581,7 +751,14 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 
 /* Small tablet and large phone */
 @media (max-width: 700px) {
-  :root { --pad-x: 24px; --pad-y: 32px; }
+  :root {
+    --pad-x: 24px; --pad-y: 32px;
+    --pad-y-case: 40px;
+    --shadow-mockup: 0 24px 48px color-mix(in srgb, var(--page) 14%, transparent);
+  }
+  /* Below this width a 200px inset leaves almost no measure left, so the
+     quote falls back to the same gutter as every other block. */
+  .cs-quote { padding: var(--pad-y-case) var(--pad-x); }
   .projects { grid-template-columns: 1fr; }
   .tool-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-cards { flex-direction: column; }
@@ -604,9 +781,13 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   body { padding: 8px; }
   :root {
     --pad-x: 20px; --pad-y: 28px;
+    --pad-y-case: 32px;
     --display-md: 26px; --lh-dmd: 34px;
     --display-sm: 22px; --lh-sm:  30px;
+    --shadow-mockup: 0 16px 32px color-mix(in srgb, var(--page) 14%, transparent);
   }
+  /* Radii that read as generous at 1440px look like blobs at 375px */
+  .cs-cover, .cs-figure { border-radius: var(--radius-2xl); }
   .job-photos { flex-direction: column; }
   .job-photo { flex-basis: auto; width: 100%; }
   .tool-grid { grid-template-columns: 1fr 1fr; }
