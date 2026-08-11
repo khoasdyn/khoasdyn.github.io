@@ -7,8 +7,12 @@ Plain HTML and CSS. No build step, no framework, no package manager, no JavaScri
 ## Structure
 
 ```
-index.html          The whole page, one file
-css/style.css       All styles, including the design tokens
+index.html          Homepage
+glowsary.html       One case study page per project, named for its slug
+project-02.html
+project-03.html
+project-04.html
+css/style.css       All styles for every page, including the design tokens
 assets/
 ├── fonts/          Two variable WOFF2 files plus their OFL licences
 ├── images/         Portrait, avatar, and workplace photos per company
@@ -19,7 +23,7 @@ assets/
     └── ...
 ```
 
-The repo carries just the six icons the page renders. The full library lives outside the repo so it is not published; copy a single file in, keeping its category folder, when a new one is needed.
+Every page shares the one stylesheet. The repo carries just the seven icons the site renders. The full library lives outside the repo so it is not published; copy a single file in, keeping its category folder, when a new one is needed.
 
 ## Design system
 
@@ -31,7 +35,22 @@ Lime and Zinc are the only palettes. The two footer link labels carry their own 
 
 **Type** is Alan Sans for almost everything and Google Sans Flex for the Download CV button and the footer contact labels. Both are self-hosted variable fonts covering weights 300–900 from a single file each, so there is no external font request and no per-weight `@font-face`. Alan Sans has no Vietnamese glyphs, so any Vietnamese text must be set in Google Sans Flex.
 
-**Sizes and radii** follow the Figma scale: `--text-md` through `--display-md`, and `--radius-md` through `--radius-full`.
+**Sizes and radii** follow the Figma scale: `--text-sm` through `--display-md`, and `--radius-md` through `--radius-full`.
+
+## Case study pages
+
+One page per project, named for the same slug as its image folder. Each is built from four block types, so a page is assembled rather than styled from scratch:
+
+| Block | Markup |
+|---|---|
+| Paragraphs | `.section.cs-block` wrapping `.cs-prose` |
+| Heading | the same, with a `.cs-badge` label above |
+| Image | `.cs-figure` holding one `<img>` |
+| Block quote | `.section.cs-block.cs-quote` |
+
+The homepage project cards link to these pages. The contact footer is the same markup as the homepage.
+
+The copy is placeholder for now, so every case study page carries `<meta name="robots" content="noindex">` until its real content lands.
 
 ## Icons
 
@@ -48,7 +67,7 @@ Logos keep their own baked-in colours and stay as plain `<img>`.
 
 ## Images
 
-Ship WebP, sized at roughly twice the display size, quality ~82. Project covers cap at 1600px wide and photos at 1000px. Everything below the hero is `loading="lazy"`.
+Ship WebP, sized at roughly twice the display size, quality ~82. Project covers cap at 1600px wide and photos at 1000px. Everything below the hero is `loading="lazy"`, the one exception being the cover on a case study page, which is the largest thing above its fold.
 
 **Project case study images:** one folder per project slug under `assets/project-case-study-images/`. Prefix every filename with that slug. Order is `cover` for the homepage card, then `01`, `02`, … for case study pages. Full rules are in `Portfolio Website Guidelines.md` at the workspace root.
 
@@ -56,7 +75,7 @@ One exception: `profile-photo-og.jpg` is a JPEG on purpose. It is the social lin
 
 ## Responsive
 
-Breakpoints at 1200, 900, 700 and 480px. The two-up blocks stack at 900, projects go single column at 700, and the contact cards stack.
+Breakpoints at 1200, 900, 700 and 480px, shared by every page. The two-up blocks stack at 900, projects go single column at 700, and the contact cards stack. On a case study page the block padding steps down at each breakpoint and the quote's 200px inset collapses to the normal gutter below 700.
 
 ## Run locally
 
