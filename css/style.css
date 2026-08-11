@@ -213,24 +213,30 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   text-align: center;
 }
 
-/* The lede runs as normal text with inline badges, so it wraps
-   as a paragraph instead of as a row of separate flex items. */
+/* The lede is a wrapping row of phrases and badges rather than a block of text,
+   so it can only break at a phrase boundary. The 6px gap is close enough to a
+   space at this size to read as ordinary prose, and it also becomes the vertical
+   gap between wrapped lines, which is what stops the badges from touching. */
 .lede {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-size: var(--display-xs);
   line-height: var(--lh-xs);
   font-weight: 400;
   text-align: center;
-  max-width: 62ch;
 }
+.lede .phrase { white-space: nowrap; }
 
-/* `inline` plus box-decoration-break keeps the pill shape when a long badge
-   has to wrap on a narrow screen, instead of overflowing or going two lines tall. */
+/* The vertical padding is what gives the pill its height, so the row gap above
+   is measured from the pill edge and not from the text inside it. */
 .badge {
-  display: inline;
   background: var(--brand-soft);
   color: var(--brand-ink);
   border-radius: var(--radius-md);
-  padding: 0 12px;
+  padding: 4px 12px;
   font-weight: 500;
   white-space: nowrap;
   -webkit-box-decoration-break: clone;
@@ -582,6 +588,15 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   .job-photos { flex-wrap: wrap; }
   .job-photo { flex-basis: calc(50% - 6px); }
   .job-photo-empty { display: none; }
+
+  /* From here down the longest phrase is wider than the column, so the row
+     layout is dropped and the lede flows as ordinary inline text that can wrap
+     anywhere. `inline` plus box-decoration-break keeps the pill shape if a badge
+     splits over two lines, and the vertical padding goes with it, because
+     padding on an inline box does not push the lines apart, it overlaps them. */
+  .lede { display: block; }
+  .lede .phrase { white-space: normal; }
+  .badge { display: inline; padding: 0 12px; }
 }
 
 /* Phone */
