@@ -7,11 +7,6 @@
 <title>Glowsary — Case Study | Khoa Duong</title>
 <meta name="description" content="How I designed and shipped Glowsary, a Chrome extension that underlines the words you have already looked up, everywhere you read.">
 
-<!-- The copy is real. Every numbered image below is still the shared placeholder
-     file, and each one's alt text describes the shot that will replace it.
-     Remove this line once the real screenshots are in. -->
-<meta name="robots" content="noindex">
-
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://khoasdyn.github.io/glowsary.html">
 <meta property="og:title" content="Glowsary — Case Study | Khoa Duong">
@@ -61,9 +56,9 @@
   </div>
 
   <!-- ============ BODY ============
-       Every glowsary-NN.webp below is the shared placeholder. Replace a slot
-       by overwriting its file in assets/project-case-study-images/glowsary/,
-       keeping the same name. No HTML change needed. -->
+       Three real media slots, in reading order: the Edit Word panel, the demo
+       recording, and the Settings tab. The video autoplays muted on a loop, so
+       it needs no JavaScript and no controls. -->
 
   <section class="section cs-block">
     <span class="cs-badge">Project Overview</span>
@@ -74,10 +69,10 @@
     </div>
   </section>
 
-  <!-- Image 01 — the core moment: a saved word underlined in a real article
-       with its definition popup open beside it. -->
+  <!-- Image 01 — the Edit Word panel, where a saved word is given its
+       definition, image, aliases and colour. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-01.webp" alt="A saved word underlined in an article, with its definition showing in a small popup" loading="lazy">
+    <img src="assets/project-case-study-images/glowsary/glowsary-01.webp" alt="The Edit Word panel, showing a word's definition, its illustration, its aliases and the four colour options" loading="lazy">
   </div>
 
   <section class="section cs-block">
@@ -92,10 +87,14 @@
     <p>Every new page felt like the first time I had met that word.</p>
   </section>
 
-  <!-- Image 02 — the same paragraph twice, once plain and once with saved words
-       underlined, showing how little of the page changes. -->
+  <!-- Video 02 — the product working end to end: underlined words in a real
+       article, the definition on hover, right-click to save a new word, then the
+       extension's own page. Muted and looping, so no controls and no audio. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-02.webp" alt="The same paragraph shown twice, once plain and once with saved words underlined" loading="lazy">
+    <video src="assets/project-case-study-images/glowsary/glowsary-02.mp4"
+           poster="assets/project-case-study-images/glowsary/glowsary-02-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="A screen recording of Glowsary in use: saved words carry a dashed underline in an article, hovering one opens its definition, and right-clicking a new word saves it without leaving the page"></video>
   </div>
 
   <section class="section cs-block">
@@ -116,10 +115,10 @@
     <p>No code gets written until there is a plan I have read and approved.</p>
   </section>
 
-  <!-- Image 03 — the requirements document beside a build plan, showing the
-       numbered requirements. Process, not interface. -->
+  <!-- Image 03 — the Settings tab: interface language, the excluded sites
+       list, and the rewritable auto-generate prompt. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-03.webp" alt="The numbered product requirements document beside one of the build plans" loading="lazy">
+    <img src="assets/project-case-study-images/glowsary/glowsary-03.webp" alt="The Settings tab, showing the interface language, the list of excluded sites and the editable auto-generate prompt" loading="lazy">
   </div>
 
   <section class="section cs-block">
@@ -137,11 +136,6 @@
     </div>
   </section>
 
-  <!-- Image 04 — the highlight in its states: at rest, active with the popup
-       open, and the same word on a dark site. The readability argument, shown. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-04.webp" alt="The highlight at rest, active with its popup open, and the same word on a dark site" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">Decisions I Had to Defend</span>
@@ -153,11 +147,6 @@
     </div>
   </section>
 
-  <!-- Image 05 — one word holding several saved meanings, with the paging
-       control at the bottom of the popup. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-05.webp" alt="A word with several saved meanings, paging between them inside one popup" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">Rethinking the AI Feature</span>
@@ -173,11 +162,6 @@
     </div>
   </section>
 
-  <!-- Image 06 — the Settings tab: the prompt field in read-only and edit mode,
-       with the API key section and its embedded tutorial below. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-06.webp" alt="The Settings tab showing the editable prompt field above the API key section" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">The Design System</span>
@@ -188,11 +172,6 @@
     </div>
   </section>
 
-  <!-- Image 07 — the token structure: Figma variables beside the four word card
-       colour modes rendered in the product. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-07.webp" alt="The colour tokens in Figma beside the four word card colour modes in the product" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">Taking It Off the Web</span>
@@ -202,11 +181,6 @@
     </div>
   </section>
 
-  <!-- Image 08 — the PDF reader open, with saved words highlighted in the
-       document's own text. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-08.webp" alt="The PDF reader open, with saved words highlighted in the document text" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <div class="cs-prose">
