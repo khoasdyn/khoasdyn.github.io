@@ -6,8 +6,9 @@
    Vietnamese and compressed to WOFF2. One file each covers
    every weight from 300 to 900.
 
-   Alan Sans has no Vietnamese glyphs, so it is display only.
-   Any Vietnamese text must use Google Sans Flex.
+   Alan Sans has no Vietnamese glyphs. The page is in English,
+   so it carries the design. Any Vietnamese text must be set
+   in Google Sans Flex.
    ========================================================= */
 @font-face {
   font-family: "Alan Sans";
@@ -61,29 +62,52 @@
   --white: #FFFFFF;
   --black: #000000;
 
+  /* Third-party brand colours. These are the only values on
+     the page outside Lime and Zinc, and they exist so a link
+     label matches its own logo. Do not use them for UI. */
+  --brand-substack: #FF681A;
+  --brand-linkedin: #0A66C2;
+
   /* ---- Semantic ---------------------------------------
      What the primitives mean. Components reference these,
      never the raw scale, so a rebrand is a change here only. */
-  --brand:        var(--lime-300);   /* project cards, buttons, contact block */
-  --brand-strong: var(--lime-400);   /* hover and emphasis */
-  --brand-soft:   var(--lime-200);   /* filled panels */
-  --brand-tint:   var(--lime-100);   /* pills and tags */
-  --brand-ink:    var(--lime-900);   /* text sitting on a brand surface */
-  --accent-live:  var(--lime-500);   /* the availability dot */
+  --brand:         var(--lime-300);   /* avatar, footer, primary button */
+  --brand-strong:  var(--lime-400);   /* project card icon badge */
+  --brand-soft:    var(--lime-200);   /* inline badges in the hero */
+  --brand-tint:    var(--lime-100);   /* tool cards */
+  --brand-ink:     var(--lime-900);   /* text and icons on a brand surface */
+  --brand-ink-soft:var(--lime-800);   /* tool card labels */
 
-  --page:         var(--zinc-950);   /* the dark backdrop behind the cards */
-  --surface:      var(--white);      /* cards */
-  --border:       var(--zinc-200);
+  --page:          var(--zinc-950);   /* the dark backdrop behind the cards */
+  --surface:       var(--white);      /* section cards */
+  --surface-muted: var(--zinc-100);   /* project label strip */
+  --border:        var(--zinc-200);
 
-  --text:         var(--zinc-950);   /* headings and primary copy */
-  --text-muted:   var(--zinc-600);   /* body secondary, 7.7:1 on white */
-  --text-subtle:  var(--zinc-500);   /* small meta labels, 4.8:1 on white */
-  --text-on-dark: var(--zinc-400);   /* footer, sits on --page */
+  --text:          var(--zinc-900);   /* headings and primary copy */
+  --text-muted:    var(--zinc-600);
+  --text-subtle:   var(--zinc-500);   /* education sub-labels */
+  --text-meta:     var(--zinc-400);   /* dates */
 
-  --radius: 28px;
-  --radius-sm: 18px;
+  /* ---- Type scale (Figma) ---- */
+  --text-md:    16px;  --lh-md:    24px;
+  --text-lg:    18px;  --lh-lg:    28px;
+  --text-xl:    20px;  --lh-xl:    30px;
+  --display-xs: 24px;  --lh-xs:    32px;
+  --display-sm: 30px;  --lh-sm:    38px;
+  --display-md: 36px;  --lh-dmd:   44px;
 
-  /* Alan Sans for headings, Google Sans Flex for everything else */
+  /* ---- Radii (Figma) ---- */
+  --radius-md:   8px;
+  --radius-xl:   12px;
+  --radius-2xl:  16px;
+  --radius-4xl:  24px;
+  --radius-full: 9999px;
+
+  /* ---- Layout ---- */
+  --gap-section: 8px;   /* between the dark-separated cards */
+  --pad-x: 48px;
+  --pad-y: 64px;
+
   --font-display: "Alan Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body: "Google Sans Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -96,306 +120,478 @@ html { scroll-behavior: smooth; }
 
 body {
   background: var(--page);
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   color: var(--text);
-  padding: 20px;
-  line-height: 1.55;
+  padding: 12px;
   -webkit-font-smoothing: antialiased;
 }
 
 img { max-width: 100%; display: block; }
 
-/* Visible keyboard focus — important for accessibility */
-a:focus-visible {
+a:focus-visible,
+.skip-link:focus-visible {
   outline: 3px solid var(--brand);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Skip link for screen readers and keyboard users */
 .skip-link {
   position: absolute;
   left: -9999px;
   background: var(--surface);
   color: var(--text);
   padding: 12px 20px;
-  border-radius: 999px;
-  font-weight: 600;
+  border-radius: var(--radius-full);
+  font-weight: 500;
   z-index: 10;
 }
 .skip-link:focus { left: 20px; top: 20px; }
 
 .page {
-  max-width: 980px;
+  max-width: 1416px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-section);
+}
+
+/* A white rounded card. Every major block is one of these. */
+.section {
+  background: var(--surface);
+  border-radius: var(--radius-4xl);
+  padding: var(--pad-y) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Section headings */
+h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--display-sm);
+  line-height: var(--lh-sm);
+  letter-spacing: -0.02em;
+}
+
+h3 { font-family: var(--font-display); font-weight: 500; }
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero {
+  align-items: center;
+  padding: 40px var(--pad-x);
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-full);
+  background: var(--brand);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--display-md);
+  line-height: var(--lh-dmd);
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+/* The lede runs as normal text with inline badges, so it wraps
+   as a paragraph instead of as a row of separate flex items. */
+.lede {
+  font-size: var(--display-xs);
+  line-height: var(--lh-xs);
+  font-weight: 400;
+  text-align: center;
+  max-width: 62ch;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--brand-soft);
+  color: var(--brand-ink);
+  border-radius: var(--radius-md);
+  padding: 0 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Icons
+
+   The duotone SVGs are authored with `currentColor`, which an
+   <img> cannot inherit. Masking paints them with the current
+   text colour while keeping the 12% fill, so one asset file
+   works on any background.
+   ========================================================= */
+.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--icon-url) center / contain no-repeat;
+  mask: var(--icon-url) center / contain no-repeat;
+}
+.icon-32 { width: 32px; height: 32px; }
+
+.i-folder    { --icon-url: url("../assets/duotone-icons/files/folder.svg"); }
+.i-file      { --icon-url: url("../assets/duotone-icons/files/file-attachment-05.svg"); }
+.i-briefcase { --icon-url: url("../assets/duotone-icons/education/briefcase-01.svg"); }
+.i-data      { --icon-url: url("../assets/duotone-icons/development/data.svg"); }
+.i-zap       { --icon-url: url("../assets/duotone-icons/general/zap-fast.svg"); }
+.i-code      { --icon-url: url("../assets/duotone-icons/development/code-browser.svg"); }
+
+/* Circular lime chip that holds an icon */
+.icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  color: var(--brand-ink);
+}
+.icon-badge-lg { width: 40px; height: 40px; background: var(--brand-strong); }
+.icon-badge-xl { width: 48px; height: 48px; background: var(--brand); }
+
+/* =========================================================
+   Featured projects
+   ========================================================= */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 32px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-cover {
+  aspect-ratio: 2880 / 1800;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: var(--surface-muted);
+}
+.project-cover img { width: 100%; height: 100%; object-fit: cover; }
+
+.project-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface-muted);
+  border-radius: var(--radius-4xl);
+  padding: 16px;
+}
+.project-label h3 {
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
+}
+
+/* =========================================================
+   About
+   ========================================================= */
+.about-row {
+  display: flex;
+  gap: var(--gap-section);
+  align-items: stretch;
+}
+
+.about-card { flex: 1 1 0; min-width: 0; }
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: var(--text-xl);
+  line-height: var(--lh-xl);
+  font-weight: 400;
+}
+
+.about-photo {
+  aspect-ratio: 1;
+  border-radius: var(--radius-4xl);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--surface-muted);
+}
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--brand);
+  color: var(--brand-ink);
+  border-radius: var(--radius-xl);
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-md);
+  line-height: var(--lh-md);
+  text-decoration: none;
+  transition: background .15s ease;
+}
+.btn:hover { background: var(--brand-strong); }
+
+/* =========================================================
+   Work experience
+   ========================================================= */
+.jobs {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 44px;
-}
-
-/* Headings carry the display face. Keep Vietnamese text out of these,
-   Alan Sans has no glyphs for it. */
-h1, h2, h3 { font-family: var(--font-display); }
-
-h2 {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 28px;
-}
-
-.head-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-.head-row h2 { margin-bottom: 0; }
-.head-note { font-size: 14px; color: var(--text-subtle); }
-
-/* =========================================================
-   Hero
-   ========================================================= */
-.hero { text-align: center; padding: 52px 44px 46px; }
-
-.avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: var(--brand);
-  margin: 0 auto 22px;
-  overflow: hidden;
-}
-.avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--brand-tint);
-  border: 1px solid var(--brand);
-  border-radius: 999px;
-  padding: 7px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 22px;
-}
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent-live);
-  /* Derived from the token so the ring follows the dot if the brand changes */
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-live) 20%, transparent);
-}
-
-.hero h1 {
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 14px;
-}
-
-.hero p {
-  font-size: 18px;
-  color: var(--text-muted);
-  max-width: 620px;
-  margin: 0 auto 28px;
-}
-.hero p strong { color: var(--text); font-weight: 600; }
-
-.hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 24px;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  border: 1.5px solid var(--text);
-  transition: transform .15s ease;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn-primary { background: var(--brand); color: var(--text); }
-.btn-ghost { background: transparent; color: var(--text); }
-
-/* =========================================================
-   Projects
-   ========================================================= */
-.projects { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-
-.project {
-  background: var(--brand);
-  border-radius: 22px;
-  padding: 16px;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform .18s ease;
-}
-.project:hover { transform: translateY(-4px); }
-
-.thumb {
-  background: var(--surface);
-  border-radius: 12px;
-  height: 190px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  color: var(--text-subtle);
-  overflow: hidden;
-  margin-bottom: 14px;
-}
-.thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-
-.project-meta { background: var(--surface); border-radius: 14px; padding: 16px 18px; }
-.project-meta h3 { font-size: 17px; font-weight: 700; margin-bottom: 3px; }
-.project-meta p { font-size: 14px; color: var(--text-muted); }
-
-/* Scoped to beat `.project-meta p`, which also matches this element */
-.project-meta .tagline {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text-subtle);
-  margin-bottom: 6px;
-}
-
-/* =========================================================
-   Experience
-   ========================================================= */
 .job {
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  padding: 20px 0;
+  padding: 32px 0;
   border-bottom: 1px solid var(--border);
 }
-.job:first-of-type { padding-top: 0; }
-.job:last-child { border-bottom: none; padding-bottom: 0; }
+.job-no-photos { gap: 0; }
 
-.job-icon {
-  flex: 0 0 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--brand);
+.job-head {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  margin-top: 2px;
-}
-.job-body { flex: 1; }
-.job-top {
-  display: flex;
   justify-content: space-between;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 5px;
 }
-.job-top h3 { font-size: 17px; font-weight: 700; }
-.job-role { font-size: 14px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
-.job-role span { color: var(--text-subtle); font-weight: 400; margin-left: 10px; }
-.job-body p { font-size: 15px; color: var(--text-muted); max-width: 70ch; }
 
-/* =========================================================
-   Skills
-   ========================================================= */
-.skill-group { margin-bottom: 24px; }
-.skill-group:last-child { margin-bottom: 0; }
-.skill-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text-subtle);
-  margin-bottom: 12px;
+.job-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
-.tags { display: flex; flex-wrap: wrap; gap: 9px; }
-.tag {
-  background: var(--brand-tint);
-  border: 1px solid var(--brand);
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 500;
+.job-title h3 {
+  font-size: var(--text-xl);
+  line-height: var(--lh-xl);
+  letter-spacing: -0.02em;
 }
-.tag.solid { background: var(--brand); }
 
-/* =========================================================
-   About
-   ========================================================= */
-.about-wrap { display: grid; grid-template-columns: 1fr 300px; gap: 16px; }
-.about p { font-size: 16px; color: var(--text-muted); margin-bottom: 14px; max-width: 62ch; }
-.about p:last-child { margin-bottom: 0; }
+.job-meta {
+  display: flex;
+  gap: 12px;
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+.job-date { color: var(--text-meta); }
 
-.photo {
-  background: var(--brand-soft);
-  border-radius: var(--radius);
-  min-height: 280px;
+.job-photos {
+  display: flex;
+  gap: 12px;
+}
+.job-photo {
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-4xl);
   overflow: hidden;
+  background: var(--surface-muted);
 }
-.photo img { width: 100%; height: 100%; object-fit: cover; }
+.job-photo img { width: 100%; height: 100%; object-fit: cover; }
+/* Keeps the remaining photos at one third width when a row is short */
+.job-photo-empty { background: none; }
+
+/* =========================================================
+   Education and tools
+   ========================================================= */
+/* Three equal columns: Education takes one, Tools spans the other two */
+.lower-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-section);
+  align-items: start;
+}
+.tools { grid-column: span 2; }
+
+.education { height: 100%; }
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.edu-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.edu-logo {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  flex-shrink: 0;
+}
+.edu-logo img { width: 40px; height: 40px; object-fit: contain; }
+
+.edu-text { display: flex; flex-direction: column; gap: 4px; }
+.edu-text h3 {
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
+}
+.edu-text p {
+  font-size: var(--text-md);
+  line-height: var(--lh-md);
+  color: var(--text-subtle);
+  font-weight: 400;
+}
+
+.tools-lede {
+  font-size: var(--text-xl);
+  line-height: var(--lh-xl);
+  font-weight: 400;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--brand-tint);
+  color: var(--brand-ink-soft);
+  border-radius: var(--radius-4xl);
+  padding: 24px 12px;
+  text-align: center;
+}
+.tool img { width: 32px; height: 32px; object-fit: contain; }
+.tool span {
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
 
 /* =========================================================
    Contact
    ========================================================= */
 .contact {
   background: var(--brand);
-  border-radius: var(--radius);
-  padding: 44px;
+  border-radius: var(--radius-4xl);
+  padding: 32px var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.contact h2 {
+  font-size: var(--display-md);
+  line-height: var(--lh-dmd);
+  color: var(--brand-ink);
   text-align: center;
 }
-.contact h2 { font-size: 32px; margin-bottom: 10px; }
-.contact > p { font-size: 16px; color: var(--brand-ink); margin-bottom: 26px; }
 
-.links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.link {
-  display: inline-flex;
+.contact-cards {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+.contact-card {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
   background: var(--surface);
-  border-radius: 999px;
-  padding: 14px 26px;
-  font-size: 15px;
-  font-weight: 600;
+  border-radius: var(--radius-4xl);
+  padding: 16px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
   text-decoration: none;
-  color: var(--text);
   transition: transform .15s ease;
 }
-.link:hover { transform: translateY(-2px); }
-.link img { width: 18px; height: 18px; object-fit: contain; }
+.contact-card:hover { transform: translateY(-2px); }
+.contact-card img { flex-shrink: 0; }
 
-footer { text-align: center; color: var(--text-on-dark); font-size: 13px; padding: 8px 0 16px; }
+.contact-substack { color: var(--brand-substack); }
+.contact-email    { color: var(--lime-600); }
+.contact-linkedin { color: var(--brand-linkedin); }
 
 /* =========================================================
    Responsive
+
+   There is no mobile design yet, so these breakpoints keep the
+   desktop layout intact and collapse it in the obvious places.
    ========================================================= */
-@media (max-width: 820px) {
-  body { padding: 12px; }
-  .card, .contact { padding: 28px 22px; }
-  .hero { padding: 36px 22px; }
-  .hero h1 { font-size: 32px; }
-  .projects, .about-wrap { grid-template-columns: 1fr; }
-  /* Stop the portrait growing to full width height when stacked */
-  .photo { min-height: 220px; max-height: 380px; }
-  .job-top { flex-direction: column; gap: 2px; }
-  .job-role { white-space: normal; }
+
+/* Laptop: tighten the generous desktop padding */
+@media (max-width: 1200px) {
+  :root { --pad-x: 32px; --pad-y: 48px; }
+  .contact-card { font-size: var(--text-md); }
 }
 
-/* Respect users who prefer less motion */
+/* Tablet: the two-up blocks stack */
+@media (max-width: 900px) {
+  :root {
+    --display-md: 30px; --lh-dmd: 38px;
+    --display-sm: 26px; --lh-sm:  34px;
+    --display-xs: 20px; --lh-xs:  30px;
+    --text-xl:    18px; --lh-xl:  28px;
+  }
+  .about-row { flex-direction: column; }
+  .about-photo { aspect-ratio: 16 / 10; width: 100%; }
+  .lower-grid { grid-template-columns: 1fr; }
+  .tools { grid-column: auto; }
+  .job-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* Small tablet and large phone */
+@media (max-width: 700px) {
+  :root { --pad-x: 24px; --pad-y: 32px; }
+  .projects { grid-template-columns: 1fr; }
+  .tool-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-cards { flex-direction: column; }
+  .job-photos { flex-wrap: wrap; }
+  .job-photo { flex-basis: calc(50% - 6px); }
+  .job-photo-empty { display: none; }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  body { padding: 8px; }
+  :root {
+    --pad-x: 20px; --pad-y: 28px;
+    --display-md: 26px; --lh-dmd: 34px;
+    --display-sm: 22px; --lh-sm:  30px;
+  }
+  .job-photos { flex-direction: column; }
+  .job-photo { flex-basis: auto; width: 100%; }
+  .tool-grid { grid-template-columns: 1fr 1fr; }
+  .contact-card { font-size: 15px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
