@@ -15,6 +15,8 @@ assets/
 ├── logos/          Brand and product marks (SVG)
 ├── duotone-icons/  Only the icons this site uses, kept in category folders
 └── project-case-study-images/
+    ├── glowsary/       one folder per project; see guidelines for naming
+    └── ...
 ```
 
 The repo carries just the six icons the page renders. The full library lives outside the repo so it is not published; copy a single file in, keeping its category folder, when a new one is needed.
@@ -47,6 +49,8 @@ Logos keep their own baked-in colours and stay as plain `<img>`.
 ## Images
 
 Ship WebP, sized at roughly twice the display size, quality ~82. Project covers cap at 1600px wide and photos at 1000px. Everything below the hero is `loading="lazy"`.
+
+**Project case study images:** one folder per project slug under `assets/project-case-study-images/`. Prefix every filename with that slug. Order is `cover` for the homepage card, then `01`, `02`, … for case study pages. Full rules are in `Portfolio Website Guidelines.md` at the workspace root.
 
 One exception: `profile-photo-og.jpg` is a JPEG on purpose. It is the social link preview, and scrapers cannot read WebP.
 
