@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vincere — Case Study | Khoa Duong</title>
+<meta name="description" content="Five years designing a B2B Recruitment OS at Vincere and The Access Group: a design system across more than ten products, and the shift from Figma mockups to designing in the codebase with AI.">
+
+<!-- The copy is real. Every numbered image below is still the shared placeholder
+     file, and the cover is the low-resolution export flagged in the guidelines.
+     Remove this line once the real images are in. -->
+<meta name="robots" content="noindex">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://khoasdyn.github.io/vincere.html">
+<meta property="og:title" content="Vincere — Case Study | Khoa Duong">
+<meta property="og:description" content="Five years on a B2B Recruitment OS: a design system across more than ten products, and the year Figma stopped being where the design happened.">
+<meta property="og:image" content="https://khoasdyn.github.io/assets/images/profile-photo-og.jpg">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#09090B">
+<link rel="canonical" href="https://khoasdyn.github.io/vincere.html">
+<link rel="icon" href="assets/images/logo-avatar.png">
+
+<link rel="preload" href="assets/fonts/alan-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/google-sans-flex-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#case-study">Skip to content</a>
+
+<div class="page">
+
+  <!-- ============ BACK ============ -->
+  <a class="back-btn" href="index.html">
+    <i class="icon i-chevron-left" aria-hidden="true"></i>Back
+  </a>
+
+  <!-- ============ TITLE ============ -->
+  <header class="section cs-title" id="case-study">
+    <div class="tag-list">
+      <span class="tag">B2B SaaS</span>
+      <span class="tag">Design System</span>
+      <span class="tag">Figma &amp; Claude</span>
+    </div>
+
+    <div class="cs-title-text">
+      <h1>Vincere: Five Years Designing a Recruitment OS</h1>
+      <p>Vincere is a B2B recruitment platform used by agencies in Australia, the UK, Europe and Japan. I spent five years there as a product designer, in a team of four that owned every screen and the design system behind them. This is what that work looked like, including the year it changed completely.</p>
+    </div>
+  </header>
+
+  <!-- ============ COVER ============
+       The same file the homepage card uses. No lazy loading here: it is the
+       largest thing above the fold. This export is only 994x559 and wants
+       replacing with a sharper one. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-cover.webp" alt="A recruitment platform dashboard with a prompt field above rows of quick actions and status cards">
+  </div>
+
+  <!-- ============ BODY ============
+       Every vincere-NN.webp below is the shared placeholder. Replace a slot by
+       overwriting its file in assets/project-case-study-images/vincere/, keeping
+       the same name. No HTML change needed. -->
+
+  <section class="section cs-block">
+    <span class="cs-badge">Project Overview</span>
+    <div class="cs-prose">
+      <p>I joined Vincere in August 2021 and left in June 2026. The company was already about fifteen years old when I arrived. Around 2022 the CEO sold it to <a href="https://en.wikipedia.org/wiki/The_Access_Group" target="_blank" rel="noopener noreferrer">The Access Group</a>, and from that point the product was one part of a much larger software group.</p>
+      <p>The design team was three people for my first two years, two product designers and a lead, and four after that. Between us we covered all of the UI and UX, the design system, and the occasional landing page. There was no separate research team, no UX writer and no design ops.</p>
+      <p>The product people use every day is a web app. There are mobile apps too, but they were never the focus.</p>
+    </div>
+  </section>
+
+  <!-- Image 01 — the opening shot. Something that sets up the scale of the
+       product before any of the writing has to explain it. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-01.webp" alt="Placeholder for the opening image of the Vincere case study" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <span class="cs-badge">The Product</span>
+    <div class="cs-prose">
+      <p>Vincere is positioned as a Recruitment OS. It is not one app but an ecosystem, with more than ten smaller products inside it serving recruiters, admins, contacts and candidates. Its surface is wide enough that knowing all of it was never realistic for anyone, including the people who had been there longest.</p>
+      <p>The interfaces are dry by nature. Tables, charts, statistics, and flows with a lot of branches. Every view, every screen, every dropdown carries a large amount of information, options and settings.</p>
+      <p>That was deliberate. The direction from Vincere, and later from The Access Group, was to give customers as much choice and as much customisation as possible, so that one platform could fit very different ways of running a recruitment agency. As a designer that constraint runs in the opposite direction to most advice you read. The job was rarely to remove options. It was to make a screen full of them stay usable.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block cs-quote">
+    <p>I was there five years. Some product managers had been there ten. Nobody knew the whole product.</p>
+  </section>
+
+  <!-- Image 02 — the density argument, shown. A dense view full of tables,
+       filters and settings, so the reader sees the kind of screen described above. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-02.webp" alt="Placeholder for a dense product view full of tables, filters and settings" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <span class="cs-badge">Working Without Users</span>
+    <div class="cs-prose">
+      <p>The customers are recruitment agencies and headhunting firms, almost all of them outside Vietnam. In five years I never spoke to one directly. That work belonged to the product managers and the Head of Product, who sat between the design team, engineering, the customers and the stakeholders.</p>
+      <p>So requirements arrived as tickets, and feedback came back the same way. This is the honest shape of the role and I am not going to dress it up as user research I did not do.</p>
+      <p>What it changed is where the questions had to go. If a ticket did not explain who the screen was for or what problem it solved, the only way to find out was to book time with the product manager and ask before drawing anything. Doing that early was the difference between a design that answered the real request and one that had to be redone after review.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <span class="cs-badge">How the Work Moved</span>
+    <div class="cs-prose">
+      <p>From 2021 until the middle of 2025 the team ran two-week Agile sprints, and a ticket travelled the same road every time. A product manager wrote it. The lead designer assigned it. I clarified anything unclear with the product manager, then worked out the user flow and wireframes in FigJam before opening Figma.</p>
+      <p>Then the design itself: mockups, prototypes, components. A review with the lead designer, then a review with the product manager, then handoff to the developers. It was a predictable process, and predictable is worth a lot on a product where no single person knows every corner.</p>
+    </div>
+  </section>
+
+  <!-- Image 03 — the process, not the interface. A FigJam board of user flows
+       and wireframes beside the Figma file it turned into. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-03.webp" alt="Placeholder for a FigJam flow board beside the Figma file it became" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <span class="cs-badge">The Design System</span>
+    <div class="cs-prose">
+      <p>A product this wide falls apart without a design system, and four designers cannot hand-draw ten products into consistency. So the system was the work that made the rest of the work possible.</p>
+      <p>The four of us built and maintained it in Figma: close to a thousand components, screens, libraries and views, covering more than ten products inside the platform. It is the piece of my five years I am most confident about, because its value is measurable in every screen that did not need a decision made twice.</p>
+      <p>It is also where my Figma craft actually came from. Variables, styles, variants and properties, strict Auto-Layout, file organisation that someone else can navigate, and plugins to remove the repetitive parts. I can move from an idea to a working prototype quickly now, and that speed is a by-product of the system rather than a talent.</p>
+    </div>
+  </section>
+
+  <!-- Image 04 — the system itself: the component library, or a variant table
+       showing one component's full set of states. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-04.webp" alt="Placeholder for the Vincere design system library or a component variant table" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <div class="cs-prose">
+      <p>Sitting next to developers and testers for five years taught me the other half. I picked up enough HTML, CSS and React to understand how the product was actually built, how the code was organised, and which design decisions were expensive to implement. I learned where performance and data fetching quietly set the limits on an interface.</p>
+      <p>That changed my handoffs more than anything else. I know what a developer needs before they can start, so I give them the states, the edge cases and the flow in one place, rather than a screen and a conversation.</p>
+    </div>
+  </section>
+
+  <!-- Image 05 — a handoff as it was delivered: the spec, the states and the
+       edge cases laid out for a developer to build from. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-05.webp" alt="Placeholder for a developer handoff showing states and edge cases" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <span class="cs-badge">When the Process Broke</span>
+    <div class="cs-prose">
+      <p>In June 2025 The Access Group started merging its companies into a single ecosystem called Access Evo. Overnight the design team was no longer working only on Vincere. Work arrived from other companies in the group, and Vincere itself went quiet.</p>
+      <p>That stretch was genuinely disordered. There was no agreed process, no clear queue of features, and no shared understanding of how many steps it took to close a ticket. Work came from whoever handed it to you.</p>
+      <p>I am including this because it is the truthful middle of the story. The neat sprint process I described above is the part that is easy to put in a portfolio. Most of my last year was the other thing, and being useful inside it was a different skill: keeping my own structure when the company had stopped providing one.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block cs-quote">
+    <p>No process, no queue, no agreed definition of done. Whoever handed you work, that was the work.</p>
+  </section>
+
+  <!-- Image 06 — the transition. The Vincere product beside the Access Evo
+       direction it was being folded into. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-06.webp" alt="Placeholder showing the move from the Vincere product toward the Access Evo ecosystem" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <span class="cs-badge">Designing in the Codebase</span>
+    <div class="cs-prose">
+      <p>From January 2026 until I left in June, the team stopped designing mockups in Figma. Not fewer mockups. None. The design step moved into the codebase, written as prompts and direct edits with AI.</p>
+      <p>The new loop was short. I worked with the product manager and Claude to build a micro-frontend inside the team's own repository on Azure DevOps. Once there were working versions, we reviewed them with the lead designer and the product manager. When the micro-frontend was agreed, a developer pushed it to production.</p>
+      <p>The work varied. Some of it was UI and UX improvement with no change to the flow or the business rules. Some of it was a new feature or a new product. Some was carrying an old Vincere feature across into the new one, and some was refining a prototype a product manager or a stakeholder had already built.</p>
+      <p>What I liked about it is that a review argument ends faster when the thing under discussion is real. Nobody has to imagine how a prototype would behave with real data, because it is already behaving.</p>
+    </div>
+  </section>
+
+  <!-- Image 07 — the new way of working: a micro-frontend running in the browser
+       next to the prompt or the repository it was built in. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-07.webp" alt="Placeholder for a coded micro-frontend beside the repository it was built in" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <div class="cs-prose">
+      <p>None of that would have been possible a year earlier. The company rolled AI out to every role in August 2025 and ran training on using it properly, which is when I got my own Claude account. Within about ten months it had moved through most of my work: research, generating design directions, writing documents, building prototypes, and checking whether a flow holds up.</p>
+      <p>The less obvious gain was the vocabulary. Working in a real repository meant learning branches, pull requests, merges, pushes and pulls, so I now understand how a digital product is built and released rather than only how it is drawn.</p>
+    </div>
+  </section>
+
+  <!-- Image 08 — the closing shot. Whatever best represents the shift from the
+       Figma file to the working product. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-08.webp" alt="Placeholder for the closing image of the Vincere case study" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <span class="cs-badge">What I Took From It</span>
+    <div class="cs-prose">
+      <p>Five years on one product teaches you patience with complexity. I stopped expecting to simplify my way out of a hard screen, because on this product the complexity was the point. The customers were paying for it.</p>
+      <p>The design system taught me that consistency is infrastructure. Four people covered ten products only because the decisions were made once and held in a place everyone could reach.</p>
+      <p>And the last year taught me not to be attached to the tool. I spent five years getting good at Figma and then watched the design step move somewhere else entirely. Being able to follow it into the codebase, instead of defending the file I was comfortable in, is the part of this job I would want to do again.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============
+       Same block as the homepage footer, kept identical on purpose. -->
+  <footer class="contact">
+    <h2>Let's connect!</h2>
+
+    <div class="contact-cards">
+      <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+         target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack">
+        <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+      </a>
+      <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+         aria-label="Email me at khoasdyn@gmail.com">
+        <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+      </a>
+      <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+         target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">
+        <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+      </a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
