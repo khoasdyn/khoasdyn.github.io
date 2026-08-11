@@ -86,7 +86,9 @@
   --text:          var(--zinc-900);   /* headings and primary copy */
   --text-muted:    var(--zinc-600);
   --text-subtle:   var(--zinc-500);   /* education sub-labels */
-  --text-meta:     var(--zinc-400);   /* dates */
+  /* Figma specifies zinc-400 for dates, but that is 2.6:1 on white and fails
+     WCAG AA. zinc-500 is 4.8:1 and reads almost identically at this size. */
+  --text-meta:     var(--zinc-500);   /* dates */
 
   /* ---- Type scale (Figma) ---- */
   --text-md:    16px;  --lh-md:    24px;
@@ -221,14 +223,18 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   max-width: 62ch;
 }
 
+/* `inline` plus box-decoration-break keeps the pill shape when a long badge
+   has to wrap on a narrow screen, instead of overflowing or going two lines tall. */
 .badge {
-  display: inline-block;
+  display: inline;
   background: var(--brand-soft);
   color: var(--brand-ink);
   border-radius: var(--radius-md);
   padding: 0 12px;
   font-weight: 500;
   white-space: nowrap;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* =========================================================
@@ -590,6 +596,8 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   .job-photo { flex-basis: auto; width: 100%; }
   .tool-grid { grid-template-columns: 1fr 1fr; }
   .contact-card { font-size: 15px; }
+  /* Below this width a long badge is wider than the column, so let it wrap */
+  .badge { white-space: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
