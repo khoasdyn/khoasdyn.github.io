@@ -7,8 +7,9 @@
 <title>Glowsary — Case Study | Khoa Duong</title>
 <meta name="description" content="How I designed and shipped Glowsary, a Chrome extension that underlines the words you have already looked up, everywhere you read.">
 
-<!-- The copy is real but every image slot below is still empty.
-     Remove this line once the screenshots are in, so the page can be indexed. -->
+<!-- The copy is real. Every numbered image below is still the shared placeholder
+     file, and each one's alt text describes the shot that will replace it.
+     Remove this line once the real screenshots are in. -->
 <meta name="robots" content="noindex">
 
 <meta property="og:type" content="article">
@@ -53,18 +54,16 @@
   </header>
 
   <!-- ============ COVER ============
-       The same file the homepage card uses. No lazy loading here: it is the
-       largest thing above the fold, so it should start downloading at once. -->
+       The real cover, the same file the homepage card uses. No lazy loading
+       here: it is the largest thing above the fold. -->
   <div class="cs-figure">
     <img src="assets/project-case-study-images/glowsary/glowsary-cover.webp" alt="Glowsary web app showing a saved vocabulary list">
   </div>
 
   <!-- ============ BODY ============
-       Image slots are numbered in reading order. Each one has a note saying
-       what belongs there. To fill a slot, drop the tag inside its div:
-
-       <img src="assets/project-case-study-images/glowsary/glowsary-01.webp" alt="..." loading="lazy">
-  -->
+       Every glowsary-NN.webp below is the shared placeholder. Replace a slot
+       by overwriting its file in assets/project-case-study-images/glowsary/,
+       keeping the same name. No HTML change needed. -->
 
   <section class="section cs-block">
     <span class="cs-badge">Project Overview</span>
@@ -75,9 +74,11 @@
     </div>
   </section>
 
-  <!-- Image 01 — the core moment: a highlighted word on a real article with its
-       definition popup open. This is the shot that explains the product fastest. -->
-  <div class="cs-figure"></div>
+  <!-- Image 01 — the core moment: a saved word underlined in a real article
+       with its definition popup open beside it. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-01.webp" alt="A saved word underlined in an article, with its definition showing in a small popup" loading="lazy">
+  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">The Problem</span>
@@ -91,15 +92,22 @@
     <p>Every new page felt like the first time I had met that word.</p>
   </section>
 
-  <!-- Image 02 — the same paragraph before and after, one clean and one with
-       saved words underlined, to show how little the page changes. -->
-  <div class="cs-figure"></div>
+  <!-- Image 02 — the same paragraph twice, once plain and once with saved words
+       underlined, showing how little of the page changes. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-02.webp" alt="The same paragraph shown twice, once plain and once with saved words underlined" loading="lazy">
+  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">How I Worked</span>
     <div class="cs-prose">
       <p>Being the only person on a project sounds like freedom. In practice it removes every natural checkpoint, so I had to build my own.</p>
       <p>I wrote a product requirements document first and kept it as the single source of truth for the whole project. Every behaviour in the product is a numbered requirement in that file, down to the minimum length of a saved word, what a duplicate does, and what the interface shows when a saved image link stops working.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <div class="cs-prose">
       <p>Then I set one rule for the build. No code gets written until there is a written plan I have read and approved. Claude Code proposes the plan, I review it against the requirements, and only after I hand it back does anything get built. When the design and the document disagreed, I fixed the document first and rebuilt from there.</p>
     </div>
   </section>
@@ -108,15 +116,22 @@
     <p>No code gets written until there is a plan I have read and approved.</p>
   </section>
 
-  <!-- Image 03 — the requirements document and a build plan side by side, or a
-       shot of the numbered FRs. Shows the process, not the interface. -->
-  <div class="cs-figure"></div>
+  <!-- Image 03 — the requirements document beside a build plan, showing the
+       numbered requirements. Process, not interface. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-03.webp" alt="The numbered product requirements document beside one of the build plans" loading="lazy">
+  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">Designing the Highlight</span>
     <div class="cs-prose">
       <p>The hardest design problem was that Glowsary does not own the page it appears on. The same highlight has to sit on a news site, a personal blog and a GitHub issue, and stay readable and quiet on all of them.</p>
       <p>I settled on a dashed underline in the colour of the saved word. Dashed so it is never mistaken for a hyperlink, and coloured so a reader can tell their own groups of words apart at a glance.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <div class="cs-prose">
       <p>Then came the rules about where it is not allowed to go. A saved word is never highlighted inside a link, a button, a navigation bar, a form field or a label. There are two reasons. An underline inside a link is genuinely confusing, and changing interactive elements risks breaking the site underneath. If a word appears both in a link and in body text on the same page, only the body text gets marked.</p>
       <p>When a definition popup opens, the word gets a soft fill behind it and its own text switches to a dark shade of its colour. That last part exists because I do not control the page's text colour. On a dark site, a light fill with the site's white text on top would be unreadable. Forcing the text colour was the only way one design could work everywhere.</p>
     </div>
@@ -124,7 +139,9 @@
 
   <!-- Image 04 — the highlight in its states: at rest, active with the popup
        open, and the same word on a dark site. The readability argument, shown. -->
-  <div class="cs-figure"></div>
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-04.webp" alt="The highlight at rest, active with its popup open, and the same word on a dark site" loading="lazy">
+  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">Decisions I Had to Defend</span>
@@ -136,22 +153,31 @@
     </div>
   </section>
 
-  <!-- Image 05 — a word with several saved meanings, showing the paging control
-       at the bottom of the popup. -->
-  <div class="cs-figure"></div>
+  <!-- Image 05 — one word holding several saved meanings, with the paging
+       control at the bottom of the popup. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-05.webp" alt="A word with several saved meanings, paging between them inside one popup" loading="lazy">
+  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">Rethinking the AI Feature</span>
     <div class="cs-prose">
       <p>Writing your own definition is the default, but there is an optional action that drafts one for you. It shipped first with an API key built into the extension, shared by everyone. It kept getting blocked, which is obvious in hindsight. A key inside a published extension is public to anyone who cares to look.</p>
       <p>I removed it and moved to the reader's own free Gemini key, added in Settings. That is a worse first run and I knew it, so I made the setup as short as I could: a direct link to where the key is created, and a tutorial video embedded under the field so nobody has to leave the page to follow it.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <div class="cs-prose">
       <p>The second change was the better one. The feature started with a language dropdown, English or Vietnamese. I replaced the entire dropdown with a single prompt field the reader can rewrite. It removed a setting and it opened the product to every language instead of two. My own default writes short Vietnamese definitions for an English learner, but that is a default, not a limit.</p>
     </div>
   </section>
 
   <!-- Image 06 — the Settings tab: the prompt field in read-only and edit mode,
-       and the API key section with its embedded tutorial. -->
-  <div class="cs-figure"></div>
+       with the API key section and its embedded tutorial below. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-06.webp" alt="The Settings tab showing the editable prompt field above the API key section" loading="lazy">
+  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">The Design System</span>
@@ -162,22 +188,31 @@
     </div>
   </section>
 
-  <!-- Image 07 — the token structure: the Figma variables next to the word card
-       colour modes, or the four card colours side by side. -->
-  <div class="cs-figure"></div>
+  <!-- Image 07 — the token structure: Figma variables beside the four word card
+       colour modes rendered in the product. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-07.webp" alt="The colour tokens in Figma beside the four word card colour modes in the product" loading="lazy">
+  </div>
 
   <section class="section cs-block">
     <span class="cs-badge">Taking It Off the Web</span>
     <div class="cs-prose">
       <p>The last large addition moved the same reading layer off the web and into local PDF files. Same matching, same underline, same popup, same right-click to save a word without leaving the page.</p>
       <p>The first version rendered every page of a PDF the moment it opened, which was slow enough to feel broken. I changed it to render only the pages in view plus one screen ahead. A 57 page test file went from roughly 6.3 seconds and 57 rendered pages down to about 0.1 seconds and 2.</p>
-      <p>A detail I only found by using it: typing in the in-page form was firing the host site's own keyboard shortcuts underneath. On GitHub, typing a definition containing the letter "t" would open the file finder. Single key presses are now kept inside the form, while real shortcuts like copy and paste still pass through untouched.</p>
     </div>
   </section>
 
   <!-- Image 08 — the PDF reader open, with saved words highlighted in the
-       document text. -->
-  <div class="cs-figure"></div>
+       document's own text. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/glowsary/glowsary-08.webp" alt="The PDF reader open, with saved words highlighted in the document text" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <div class="cs-prose">
+      <p>One detail I only found by using it: typing in the in-page form was firing the host site's own keyboard shortcuts underneath. On GitHub, typing a definition containing the letter "t" would open the file finder. Single key presses are now kept inside the form, while real shortcuts like copy and paste still pass through untouched.</p>
+    </div>
+  </section>
 
   <section class="section cs-block">
     <span class="cs-badge">What I Took From It</span>

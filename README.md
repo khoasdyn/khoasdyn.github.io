@@ -48,9 +48,11 @@ One page per project, named for the same slug as its image folder. Each is built
 | Image | `.cs-figure` holding one `<img>` |
 | Block quote | `.section.cs-block.cs-quote` |
 
+Not every section carries a heading. The plain paragraph block exists so a section can continue the previous thought without starting a new one.
+
 The homepage project cards link to these pages. The contact footer is the same markup as the homepage.
 
-The copy is placeholder for now, so every case study page carries `<meta name="robots" content="noindex">` until its real content lands.
+Every image slot ships as a real file rather than an empty element, so a slot can be filled later by overwriting the file without touching the HTML. Pages still holding placeholder copy or placeholder images carry `<meta name="robots" content="noindex">` until they are finished.
 
 ## Icons
 
