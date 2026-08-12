@@ -189,24 +189,34 @@
   </main>
 
   <!-- ============ CONTACT ============
-       Same block as the homepage footer, kept identical on purpose. -->
+       The same block as the homepage footer apart from the nav button at the
+       bottom, which is the "Back to home" variant here and "Back to top" there. -->
   <footer class="contact">
-    <h2>Let's connect!</h2>
+    <div class="contact-body">
+      <h2>Let's connect!</h2>
 
-    <div class="contact-cards">
-      <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
-         target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
-        <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
-      </a>
-      <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
-         aria-label="Email me at khoasdyn@gmail.com">
-        <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
-      </a>
-      <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
-         target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
-        <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
-      </a>
+      <div class="contact-cards">
+        <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+           target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
+          <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+        </a>
+        <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+           aria-label="Email me at khoasdyn@gmail.com">
+          <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+        </a>
+        <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+           target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
+          <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+        </a>
+      </div>
     </div>
+
+    <!-- The "Back to home" variant, which is the one a case study carries.
+         It repeats the back button at the top of the page on purpose, so the
+         reader does not have to scroll back up to leave. -->
+    <a class="contact-nav" href="index.html">
+      <i class="icon i-chevron-left" aria-hidden="true"></i>Back to home
+    </a>
   </footer>
 
 </div>

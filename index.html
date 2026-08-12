@@ -249,24 +249,33 @@
 
   <!-- ============ CONTACT ============ -->
   <footer class="contact">
-    <h2>Let's connect!</h2>
+    <div class="contact-body">
+      <h2>Let's connect!</h2>
 
-    <div class="contact-cards">
-      <!-- External links open in a new tab so a recruiter does not lose this page.
-           aria-label because the visible text is a bare URL, which reads badly aloud. -->
-      <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
-         target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
-        <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
-      </a>
-      <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
-         aria-label="Email me at khoasdyn@gmail.com">
-        <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
-      </a>
-      <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
-         target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
-        <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
-      </a>
+      <div class="contact-cards">
+        <!-- External links open in a new tab so a recruiter does not lose this page.
+             aria-label because the visible text is a bare URL, which reads badly aloud. -->
+        <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+           target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
+          <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+        </a>
+        <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+           aria-label="Email me at khoasdyn@gmail.com">
+          <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+        </a>
+        <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+           target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
+          <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+        </a>
+      </div>
     </div>
+
+    <!-- The Figma marks the "Back to top" variant as the homepage one. Bare
+         "#top" is the document top per the HTML spec, so this needs no id and
+         no JavaScript, and it inherits the smooth scroll already on <html>. -->
+    <a class="contact-nav" href="#top">
+      <i class="icon i-chevron-up" aria-hidden="true"></i>Back to top
+    </a>
   </footer>
 
 </div>

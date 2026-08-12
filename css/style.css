@@ -262,6 +262,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 .icon-32 { width: 32px; height: 32px; }
 
 .i-chevron-left { --icon-url: url("../assets/duotone-icons/arrows/chevron-left.svg"); }
+.i-chevron-up   { --icon-url: url("../assets/duotone-icons/arrows/chevron-up.svg"); }
 .i-folder    { --icon-url: url("../assets/duotone-icons/files/folder.svg"); }
 .i-file      { --icon-url: url("../assets/duotone-icons/files/file-attachment-05.svg"); }
 .i-briefcase { --icon-url: url("../assets/duotone-icons/education/briefcase-01.svg"); }
@@ -519,6 +520,9 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 /* =========================================================
    Contact
    ========================================================= */
+/* Two gaps rather than one: the heading and the cards belong together at 32px,
+   and the nav button sits closer under them at 16px. That is how the Figma
+   `Footer Section` nests a Container inside the footer. */
 .contact {
   background: var(--brand);
   border-radius: var(--radius-4xl);
@@ -526,7 +530,15 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
+}
+
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 32px;
+  width: 100%;
 }
 .contact h2 {
   font-size: var(--display-md);
@@ -548,7 +560,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   justify-content: center;
   gap: 12px;
   background: var(--surface);
-  border-radius: var(--radius-4xl);
+  border-radius: var(--radius-2xl);
   padding: 16px;
   font-family: var(--font-body);
   font-weight: 500;
@@ -559,6 +571,30 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 }
 .contact-card:hover { transform: translateY(-2px); }
 .contact-card img { flex-shrink: 0; }
+
+/* The one navigation control in the footer, from the Figma `Footer Section`
+   variant set. One per page, never both: the homepage carries "Back to top",
+   a case study carries "Back to home". It lifts on hover like the cards above
+   it rather than changing colour, because the only lime a step darker than
+   --brand-strong drops the label below WCAG AA. */
+.contact-nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--brand-strong);
+  color: var(--brand-ink);
+  border-radius: var(--radius-full);
+  padding: 12px 32px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-md);
+  line-height: var(--lh-md);
+  text-decoration: none;
+  transition: transform .15s ease;
+}
+.contact-nav:hover { transform: translateY(-2px); }
 
 /* The two third-party labels carry their own brand colour so each matches its
    own logo. The email label has no logo to match, so it uses the same lime as
