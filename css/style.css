@@ -142,24 +142,11 @@ body {
 
 img { max-width: 100%; display: block; }
 
-a:focus-visible,
-.skip-link:focus-visible {
+a:focus-visible {
   outline: 3px solid var(--brand);
   outline-offset: 3px;
   border-radius: 4px;
 }
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  background: var(--surface);
-  color: var(--text);
-  padding: 12px 20px;
-  border-radius: var(--radius-full);
-  font-weight: 500;
-  z-index: 10;
-}
-.skip-link:focus { left: 20px; top: 20px; }
 
 .page {
   max-width: 1416px;
@@ -710,14 +697,22 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 }
 
 /* Full-bleed 16:9 image. No white card around it, the image is the card. */
+/* Body media keeps whatever shape it was exported at. No fixed box and no
+   object-fit, so nothing is ever cropped: the figure is as tall as the image
+   inside it. A 4:3 screenshot stays 4:3, a 16:9 one stays 16:9. */
 .cs-figure {
-  aspect-ratio: 16 / 9;
   border-radius: var(--radius-4xl);
   overflow: hidden;
   background: var(--surface-muted);
 }
 .cs-figure img,
-.cs-figure video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cs-figure video { width: 100%; height: auto; display: block; }
+
+/* The cover is the exception. It is the same file the homepage card uses and
+   it has to match that card's shape, so it keeps a fixed 16:10 box and fills
+   it however the source is shaped. */
+.cs-figure.cs-cover { aspect-ratio: 2880 / 1800; }
+.cs-figure.cs-cover img { height: 100%; object-fit: cover; }
 
 /* =========================================================
    Responsive
