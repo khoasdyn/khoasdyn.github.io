@@ -11,7 +11,7 @@ index.html          Homepage
 glowsary.html       One case study page per project, named for its slug
 vincere.html
 tailorwing.html
-project-04.html
+ai-transcription.html
 css/style.css       All styles for every page, including the design tokens
 assets/
 ├── fonts/          Two variable WOFF2 files plus their OFL licences

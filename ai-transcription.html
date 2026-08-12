@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Transcription Web App — Case Study | Khoa Duong</title>
+<meta name="description" content="A self-initiated concept for teams who record meetings. I designed it around one idea: the useful output of a meeting is not the recording, it is who does what next.">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://khoasdyn.github.io/ai-transcription.html">
+<meta property="og:title" content="AI Transcription Web App — Case Study | Khoa Duong">
+<meta property="og:description" content="A concept for teams who record meetings, designed around the idea that the useful output is the action item, not the transcript.">
+<meta property="og:image" content="https://khoasdyn.github.io/assets/images/profile-photo-og.jpg">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#09090B">
+<link rel="canonical" href="https://khoasdyn.github.io/ai-transcription.html">
+<link rel="icon" href="assets/images/logo-avatar.png">
+
+<link rel="preload" href="assets/fonts/alan-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/google-sans-flex-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#case-study">Skip to content</a>
+
+<div class="page">
+
+  <!-- ============ BACK ============ -->
+  <a class="back-btn" href="index.html">
+    <i class="icon i-chevron-left" aria-hidden="true"></i>Back
+  </a>
+
+  <main class="cs-main" id="case-study" tabindex="-1">
+
+  <!-- ============ TITLE ============ -->
+  <header class="section cs-title">
+    <div class="tag-list">
+      <span class="tag">Productivity</span>
+      <span class="tag">Concept</span>
+      <span class="tag">Figma</span>
+    </div>
+
+    <div class="cs-title-text">
+      <h1>AI Transcription Web App: Turning Meeting Audio into Action Items</h1>
+      <p>A concept for teams who record their meetings. You drop in the audio, and you get back a summary, a full transcript and a list of what someone agreed to do. I designed it on my own in Figma to practise, and I am planning to build it.</p>
+    </div>
+  </header>
+
+  <!-- ============ COVER ============
+       The real cover, the same file the homepage card uses. No lazy loading
+       here: it is the largest thing above the fold. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/ai-transcription/ai-transcription-cover.webp" fetchpriority="high" decoding="async" alt="The app's detail view, showing an AI summary of a recorded meeting beside an Action Items column">
+  </div>
+
+  <!-- ============ BODY ============
+       Five real media slots, in reading order: the transcript view, the demo
+       recording, the folder sidebar, the empty state, and the import dialog.
+       The video autoplays muted on a loop, so it needs no JavaScript and no
+       controls.
+
+       Every text block carries a heading. A block with no badge above it reads
+       as a loose offcut of the block before it, so the page does not use one. -->
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Project Overview</h2>
+    <div class="cs-prose">
+      <p>This is a desktop app for a team that records its meetings. You import an audio file, the app transcribes it, and the recording turns into three things you can use: a written summary, a transcript split by speaker, and a list of action items.</p>
+      <p><strong>It is a self-initiated concept and nothing more than that.</strong> I designed it in Figma to a finished visual standard, I built none of it, and no user has ever tried it. I made it to practise designing a full product on my own, and I am planning to build it next.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">The Problem</h2>
+    <div class="cs-prose">
+      <p>Transcription itself is close to solved. Every tool in this space will turn an hour of audio into an accurate wall of text. The part nobody has fixed is what happens next, because <strong>a transcript is not what anyone wanted in the first place</strong>.</p>
+      <p>What a team needs after a meeting is who agreed to do what. The recording is only the evidence for that, and the transcript is only a longer version of the same evidence. Most tools stop there and hand you the raw material, which leaves the actual work, reading it and pulling the commitments out, exactly where it was.</p>
+      <p>So I designed the whole product around one answer. <strong>The output is the action item.</strong> Everything else on the screen exists to support it or to prove it.</p>
+    </div>
+  </section>
+
+  <!-- Image 01 — the Transcript tab open, speaker-labelled and timestamped,
+       with a real action item sitting in the right-hand column. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/ai-transcription/ai-transcription-01.webp" alt="The Transcript tab, showing the conversation split by speaker with a timestamp on each turn, and an action item in the column on the right" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Why Summary Opens First</h2>
+    <div class="cs-prose">
+      <p>A recording opens on its summary. The transcript sits behind a tab, one click away.</p>
+      <p>I put it that way round because <strong>nobody rereads a transcript</strong>. You open a meeting from last week to remember what was decided, not to sit through twenty-four minutes of speech a second time. Making the transcript the landing view would spend the first screen on the thing people scroll past.</p>
+      <p>The transcript is still there, and it is built to be searched rather than read. Every turn carries a speaker, a timestamp and its own play button, so you can jump to the moment in the audio instead of scrubbing for it. It is the evidence, kept close to the claim.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">The Action Items Panel</h2>
+    <div class="cs-prose">
+      <p>Action items are not a section inside the summary. They are their own column, down the right side of the screen.</p>
+      <p>That looks like a lot of space for a short list, and it is deliberate. <strong>If the action item is the real output, it cannot be a paragraph inside something else.</strong> Putting it in the summary would have made it one more thing the AI wrote, sitting in the middle of everything else the AI wrote.</p>
+      <p>Being its own column also puts it outside the Summary and Transcript tabs, so it stays visible whichever one you are in. It is the one part of the page a person adds to rather than reads, and it is the part you are meant to leave with.</p>
+    </div>
+  </section>
+
+  <!-- Video 02 — the flow end to end: the empty state, importing two audio
+       files, the cards sitting in Processing while the app works, then opening
+       a finished recording and adding an action item. Muted and looping, so no
+       controls and no audio. -->
+  <div class="cs-figure">
+    <video src="assets/project-case-study-images/ai-transcription/ai-transcription-02.mp4"
+           poster="assets/project-case-study-images/ai-transcription/ai-transcription-02-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="A screen recording of the app in use: two audio files are imported, their cards show a Processing state while the app transcribes them, then a finished recording opens on its transcript and an action item is added"></video>
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Where Recordings Go</h2>
+    <div class="cs-prose">
+      <p>The sidebar is a file manager: Home, Shared with me, Uncategorized, Archived, then favourites and folders. The part I care about is Uncategorized.</p>
+      <p>A team that records its meetings ends up with hundreds of files, and most tools assume that people will file them. Plenty of people never do. So <strong>Uncategorized is a named place in the sidebar rather than an absence</strong>. A recording nobody sorted has somewhere it belongs, and finding it later is a click instead of a search through everything.</p>
+      <p>Folders, favourites and an archive are there for the people who do file things. They are the reward for tidiness, not the requirement for finding your own work.</p>
+    </div>
+  </section>
+
+  <!-- Image 03 — the sidebar with folders and favourites, and a folder open
+       showing its recordings as summary cards. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/ai-transcription/ai-transcription-03.webp" alt="A folder called Marketing open in the app, with its recordings shown as cards and the folder list in the sidebar beside them" loading="lazy">
+  </div>
+
+  <!-- Image 04 — day one: the empty state, before any audio has been imported. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/ai-transcription/ai-transcription-04.webp" alt="The empty state on a new account, telling the reader there are no audio files yet and where the Import button is" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Building It Next</h2>
+    <div class="cs-prose">
+      <p>The argument on this page is mine, and it has never met a user. I designed it from my own reasoning about meetings, which is enough to make a concept coherent and not enough to make it right.</p>
+      <p>Building it is how I intend to find out. <strong>I want to put a real transcript through it and see whether the summary is worth opening first</strong>, because that decision is the one everything else on the page leans on. It is the same way I worked on <a href="glowsary.html">Glowsary</a>: write the thinking down, build it, then let the real thing correct me.</p>
+    </div>
+  </section>
+
+  <!-- Image 05 — the import path: the drag-and-drop dialog with the accepted
+       audio formats, over the Home screen with two files already processing. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/ai-transcription/ai-transcription-05.webp" alt="The import dialog, accepting audio files by drag and drop, over the home screen where two recordings are already being transcribed" loading="lazy">
+  </div>
+
+  </main>
+
+  <!-- ============ CONTACT ============
+       Same block as the homepage footer, kept identical on purpose. -->
+  <footer class="contact">
+    <h2>Let's connect!</h2>
+
+    <div class="contact-cards">
+      <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+         target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack">
+        <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+      </a>
+      <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+         aria-label="Email me at khoasdyn@gmail.com">
+        <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+      </a>
+      <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+         target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">
+        <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+      </a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
