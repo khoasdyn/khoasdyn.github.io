@@ -63,11 +63,14 @@
   </div>
 
   <!-- ============ BODY ============
-       Three block types, mirroring the Project Overview Section variants:
+       Two block types, mirroring the Project Overview Section variants:
 
-         .cs-block            Normal Text   one or more paragraphs
-         .cs-block + .cs-badge  Heading     lime label above the paragraphs
-         .cs-figure           Placeholder Image   full-bleed 16:9
+         .cs-block + .cs-badge  Text    lime heading above the paragraphs
+         .cs-figure             Image   full-bleed 16:9
+
+       Every text block carries an <h2 class="cs-badge"> heading. A block with
+       no heading reads as a loose offcut of the block before it, so the site
+       does not use one.
 
        Text blocks cap their own width at --measure and centre it. Images do
        not, so they stay full-bleed against the narrower column of copy.
@@ -93,8 +96,9 @@
   <!-- Image 02 -->
   <div class="cs-figure"></div>
 
-  <!-- Normal text -->
+  <!-- Text -->
   <section class="section cs-block">
+    <h2 class="cs-badge">Section Heading</h2>
     <div class="cs-prose">
       <p>Vivamus ultrices pellentesque interdum. Nulla tristique nec enim mattis efficitur. Morbi sit amet pellentesque metus, at fermentum ex. Nulla nec luctus nibh, at tempus sapien. Nam consequat metus in tempor fermentum. Quisque ac mi a ex ornare euismod at vel augue.</p>
     </div>
@@ -112,8 +116,9 @@
   <!-- Image 03 -->
   <div class="cs-figure"></div>
 
-  <!-- Normal text -->
+  <!-- Text -->
   <section class="section cs-block">
+    <h2 class="cs-badge">Section Heading</h2>
     <div class="cs-prose">
       <p>Vivamus ultrices pellentesque interdum. Nulla tristique nec enim mattis efficitur. Morbi sit amet pellentesque metus, at fermentum ex. Nulla nec luctus nibh, at tempus sapien. Nam consequat metus in tempor fermentum. Quisque ac mi a ex ornare euismod at vel augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eu quam placerat, consequat lectus sit amet, porta arcu. Quisque dignissim accumsan dignissim.</p>
     </div>

@@ -50,7 +50,7 @@
 
     <div class="cs-title-text">
       <h1>Vincere: Five Years Designing a Recruitment OS</h1>
-      <p>Vincere is a B2B recruitment platform used by agencies in Australia, the UK, Europe and Japan. I spent five years there as a product designer, in a team of four that owned every screen and the design system behind them. This is how that work was done, from two-week sprints in Figma to designing directly in the product's codebase.</p>
+      <p>Vincere is a B2B recruitment platform used by agencies in Australia, the UK, Europe and Japan. I spent five years there as a product designer, in a small team that owned every screen and the design system behind them. This is how that work was done, from two-week sprints in Figma to designing directly in the product's codebase.</p>
     </div>
   </header>
 
@@ -64,13 +64,16 @@
   <!-- ============ BODY ============
        Every vincere-NN.webp below is the shared placeholder. Replace a slot by
        overwriting its file in assets/project-case-study-images/vincere/, keeping
-       the same name. No HTML change needed. -->
+       the same name. No HTML change needed.
+
+       Every text block carries a heading. A block with no badge above it reads
+       as a loose offcut of the block before it, so the page does not use one. -->
 
   <section class="section cs-block">
     <h2 class="cs-badge">Project Overview</h2>
     <div class="cs-prose">
-      <p>I joined Vincere in August 2021 as a product designer and stayed until June 2026. The product is a B2B SaaS platform for recruitment agencies and headhunting firms, most of them in Australia, the UK, Europe and Japan. The web app is what people use every day, with mobile apps alongside it.</p>
-      <p>The design team was three people for my first two years, two product designers and a lead, and four after that. Between us we covered all of the UI and UX across the platform, the design system behind it, and the occasional landing page. Day to day we worked with the product managers, the Head of Product, engineering and QA.</p>
+      <p>I joined Vincere in August 2021 as a product designer and stayed until June 2026. The product is a <strong>B2B SaaS platform for recruitment agencies and headhunting firms</strong>, most of them in Australia, the UK, Europe and Japan. The web app is what people use every day, with mobile apps alongside it.</p>
+      <p>The design team was three people for my first two years, two product designers and a lead, and four after that. Between us we covered <strong>all of the UI and UX across the platform, plus the design system behind it</strong>. Day to day we worked with the product managers, the Head of Product, engineering and QA.</p>
       <p>The toolset across those five years: Figma and FigJam for the design work, Jira and Azure DevOps Boards for tickets, and from 2025 Claude for research, documentation and building.</p>
     </div>
   </section>
@@ -82,14 +85,13 @@
   </div>
 
   <section class="section cs-block">
-    <h2 class="cs-badge">The Product</h2>
+    <h2 class="cs-badge">A Product Built on Options</h2>
     <div class="cs-prose">
-      <p>Vincere is positioned as a Recruitment OS. It is not one app but an ecosystem, with more than ten smaller products inside it serving recruiters, admins, contacts and candidates. Its surface is wide enough that no one person on the team knew all of it.</p>
-      <p>The interfaces are data-dense by nature. Tables, charts, statistics, and flows with a lot of branches. Every view, every screen and every dropdown carries a large amount of information, options and settings.</p>
-      <p>That density is deliberate. The product direction was to give customers as much choice and as much customisation as possible, so that one platform could fit very different ways of running an agency. It sets a design constraint that runs against most general advice.</p>
+      <p>Vincere is positioned as a Recruitment OS. It is not one app but an ecosystem, with <strong>more than ten smaller products inside it</strong> serving recruiters, admins, contacts and candidates. Its surface is wide enough that no one person on the team knew all of it.</p>
+      <p>The interfaces are data-dense by nature. Tables, charts, statistics, and flows with a lot of branches. Every view and every dropdown carries a large amount of information, options and settings.</p>
+      <p>That density is deliberate. The product direction was to give customers as much choice and as much customisation as possible, so one platform could fit very different ways of running an agency. <strong>The job was rarely to remove options. It was to make a screen full of them stay usable.</strong></p>
     </div>
   </section>
-
 
   <!-- Image 02 — the density argument, shown. A dense view full of tables,
        filters and settings, so the reader sees the kind of screen described above. -->
@@ -98,11 +100,11 @@
   </div>
 
   <section class="section cs-block">
-    <h2 class="cs-badge">The Sprint Workflow</h2>
+    <h2 class="cs-badge">No Customer in the Room</h2>
     <div class="cs-prose">
-      <p>From 2021 until the middle of 2025 the team ran two-week Agile sprints, and a ticket followed the same path every time.</p>
-      <p>A product manager wrote the ticket for the feature or update that needed design. The lead designer assigned it across the team. I read it and, where anything was unclear, booked time with the product manager before drawing anything, since customer contact sat with product rather than with design. That conversation was the difference between a design that answered the real request and one that had to be redone after review.</p>
-      <p>The thinking then happened in FigJam: user flows, wireframes, and a few possible solutions side by side. Only after that came Figma, for the mockups, the prototype and the components behind them. A review with the lead designer, then a review with the product manager, then handoff to engineering.</p>
+      <p>Customer contact sat with the product managers and the Head of Product, not with design. Our customers were agencies in other countries and other time zones, so a designer almost never sat in front of one.</p>
+      <p>That is a real constraint on how you work, and the answer was not to guess. <strong>Whenever a ticket left anything open, I booked time with the product manager before drawing a single screen.</strong> They held the customer conversations, so the fastest route to the reasoning behind a request was through them.</p>
+      <p>It changed what I brought to those meetings. Instead of asking what the customer wanted, I would bring the flow I thought they were describing and ask where it broke. That turned a vague ticket into a decision in one sitting, and it was the difference between a design that answered the real request and one that had to be redone after review.</p>
     </div>
   </section>
 
@@ -113,11 +115,11 @@
   </div>
 
   <section class="section cs-block">
-    <h2 class="cs-badge">The Design System</h2>
+    <h2 class="cs-badge">How a Ticket Travelled</h2>
     <div class="cs-prose">
-      <p>A platform this wide cannot stay consistent by hand, and four designers cannot draw more than ten products into agreement one screen at a time. The design system was the work that made the rest of the work possible.</p>
-      <p>The four of us built and maintained it in Figma: close to a thousand components, screens, libraries and views, covering more than ten products inside the platform. Every product drew from the same source, so a pattern solved once stayed solved.</p>
-      <p>It is also where my Figma craft comes from. Variables for colour, spacing and type. Styles, components, variants and properties for anything used more than once. Strict Auto-Layout, so a component holds its shape against long labels and real data. File organisation another designer can navigate without asking, and plugins to take the repetition out of the rest.</p>
+      <p>From 2021 until the middle of 2025 the team ran <strong>two-week Agile sprints</strong>, and a ticket followed the same path every time.</p>
+      <p>A product manager wrote the ticket for the feature or update that needed design. The lead designer assigned it across the team. I read it, cleared up anything unclear with the product manager, then <strong>did the thinking in FigJam first</strong>: user flows, wireframes, and a few possible solutions side by side.</p>
+      <p>Only after that came Figma, for the mockups, the prototype and the components behind them. A review with the lead designer, then a review with the product manager, then handoff to engineering. Keeping the exploration out of Figma mattered, because a wireframe invites an opinion about the flow and a polished mockup invites an opinion about the colour.</p>
     </div>
   </section>
 
@@ -128,9 +130,11 @@
   </div>
 
   <section class="section cs-block">
+    <h2 class="cs-badge">The Design System</h2>
     <div class="cs-prose">
-      <p>Sitting next to developers and testers taught me the other half of the job. I picked up enough HTML, CSS and React to understand how the product was built, how the code was organised, and which design decisions were expensive to implement. I learned where performance and data fetching set the real limits on an interface.</p>
-      <p>That shaped how I hand off. I know what a developer needs before they can start, so a handoff carries the states, the edge cases and the flow in one place rather than a screen and a conversation.</p>
+      <p>A platform this wide cannot stay consistent by hand, and four designers cannot draw more than ten products into agreement one screen at a time. <strong>The design system was the work that made the rest of the work possible.</strong></p>
+      <p>The four of us built and maintained it in Figma: <strong>close to a thousand components, screens, libraries and views</strong>, covering more than ten products inside the platform. Every product drew from the same source, so a pattern solved once stayed solved.</p>
+      <p>It is also where my Figma craft comes from. Variables for colour, spacing and type. Styles, components, variants and properties for anything used more than once. Strict Auto-Layout, so a component holds its shape against long labels and real data. File organisation another designer can navigate without asking, and plugins to take the repetition out of the rest.</p>
     </div>
   </section>
 
@@ -141,10 +145,11 @@
   </div>
 
   <section class="section cs-block">
-    <h2 class="cs-badge">Working Across the Group</h2>
+    <h2 class="cs-badge">Designing for the Build</h2>
     <div class="cs-prose">
-      <p>In June 2025 The Access Group began bringing its products together into a single ecosystem, Access Evo. The design team's remit widened with it. Alongside Vincere we took on work from other products in the group.</p>
-      <p>That meant picking up unfamiliar domains quickly and designing for teams whose conventions were not ours. The design system experience carried over directly, because merging separate products into one ecosystem is a consistency problem before it is anything else.</p>
+      <p>Sitting next to developers and testers taught me the other half of the job. I picked up enough <strong>HTML, CSS and React</strong> to understand how the product was built, how the code was organised, and which design decisions were expensive to implement. I learned where performance and data fetching set the real limits on an interface.</p>
+      <p>On a data-dense product that is not trivia. A filter that looks free in a mockup can be a query that no one wants to run, and knowing that early is cheaper than finding out in review.</p>
+      <p>It also shaped how I hand off. <strong>I know what a developer needs before they can start</strong>, so a handoff carries the states, the edge cases and the flow in one place rather than a screen and a conversation.</p>
     </div>
   </section>
 
@@ -155,14 +160,12 @@
   </div>
 
   <section class="section cs-block">
-    <h2 class="cs-badge">Designing in the Codebase</h2>
+    <h2 class="cs-badge">Working Across the Group</h2>
     <div class="cs-prose">
-      <p>From January 2026 until I left in June, the design step moved out of Figma and into the product itself. Instead of mockups, we built working micro-frontends.</p>
-      <p>The loop was short. I worked with the product manager and Claude to build a micro-frontend inside the team's own repository on Azure DevOps. Once there were working versions, we reviewed them with the lead designer and the product manager. When the micro-frontend was agreed, a developer took it to production.</p>
-      <p>The work varied. Some tickets were UI and UX improvements with no change to the flow or the business rules. Some were an entirely new feature or product. Some carried an existing Vincere feature across into the new ecosystem, and some were refining a prototype a product manager or a stakeholder had already built.</p>
+      <p>In June 2025 The Access Group began bringing its products together into a single ecosystem, Access Evo. The design team's remit widened with it. Alongside Vincere we took on work from other products in the group.</p>
+      <p>That meant picking up unfamiliar domains quickly and designing for teams whose conventions were not ours. <strong>The design system experience carried over directly</strong>, because merging separate products into one ecosystem is a consistency problem before it is anything else.</p>
     </div>
   </section>
-
 
   <!-- Image 07 — the new way of working: a micro-frontend running in the browser
        next to the repository it was built in. -->
@@ -171,9 +174,19 @@
   </div>
 
   <section class="section cs-block">
+    <h2 class="cs-badge">Designing in the Codebase</h2>
     <div class="cs-prose">
-      <p>Working that way depended on a year of preparation. AI was introduced across every role in August 2025, with training on how to use it well, which is when I got my own Claude account. Within about ten months it had moved through most of my work: research, generating design directions, writing documentation, building prototypes, and testing whether a flow holds up.</p>
-      <p>Building inside a real repository gave me the vocabulary that goes with it. Branches, pull requests, merges, pushes and pulls. I understand how a digital product is built and released, not only how it is drawn.</p>
+      <p>From January 2026 until I left in June, <strong>the design step moved out of Figma and into the product itself</strong>. Instead of mockups, we built working micro-frontends.</p>
+      <p>The loop was short. I worked with the product manager and Claude to build a micro-frontend inside the team's own repository on Azure DevOps. Once there were working versions, we reviewed them with the lead designer and the product manager. When the micro-frontend was agreed, a developer took it to production.</p>
+      <p>The work varied. Some tickets were UI and UX improvements with no change to the flow or the business rules. Some were an entirely new feature or product. Some carried an existing Vincere feature across into the new ecosystem, and some were refining a prototype a product manager or a stakeholder had already built. <strong>A review moves faster when the thing being reviewed is real.</strong></p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Learning to Work With AI</h2>
+    <div class="cs-prose">
+      <p>Working that way was only possible because of the months before it. <strong>AI was introduced across every role in August 2025</strong>, with training on how to use it well, which is when I got my own Claude account. Within about ten months it had moved through most of my work: research, generating design directions, writing documentation, building prototypes, and testing whether a flow holds up.</p>
+      <p>Building inside a real repository gave me the vocabulary that goes with it. Branches, pull requests, merges, pushes and pulls. <strong>I understand how a digital product is built and released</strong>, not only how it is drawn.</p>
     </div>
   </section>
 
@@ -186,9 +199,9 @@
   <section class="section cs-block">
     <h2 class="cs-badge">What I Took From It</h2>
     <div class="cs-prose">
-      <p>Five years on one platform taught me to work with complexity instead of against it. On a product sold on how much it can be configured, the goal is not a simpler screen. It is a dense screen that stays legible and predictable.</p>
-      <p>The design system taught me that consistency is infrastructure. Four designers covered more than ten products because the decisions were made once and kept somewhere everyone could reach.</p>
-      <p>And the last year taught me not to attach myself to one tool. I spent five years becoming fluent in Figma, then watched the design step move into the codebase. Following it there, rather than defending the file I was comfortable in, is the part of this work I would want to do again.</p>
+      <p><strong>Complexity is something to work with, not against.</strong> On a product sold on how much it can be configured, the goal is not a simpler screen. It is a dense screen that stays legible and predictable.</p>
+      <p><strong>Consistency is infrastructure.</strong> Four designers covered more than ten products because the decisions were made once and kept somewhere everyone could reach.</p>
+      <p><strong>Do not attach yourself to one tool.</strong> I spent five years becoming fluent in Figma, then watched the design step move into the codebase. Following it there, rather than defending the file I was comfortable in, is the part of this work I would want to do again.</p>
     </div>
   </section>
 
