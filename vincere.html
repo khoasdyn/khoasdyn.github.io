@@ -7,10 +7,6 @@
 <title>Vincere — Case Study | Khoa Duong</title>
 <meta name="description" content="Five years designing a B2B Recruitment OS at Vincere: the sprint workflow, a Figma design system across more than ten products, and the move to designing directly in the codebase with AI.">
 
-<!-- The copy and the cover are real. Every numbered image below is still the
-     shared placeholder file. Remove this line once those are in. -->
-<meta name="robots" content="noindex">
-
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://khoasdyn.github.io/vincere.html">
 <meta property="og:title" content="Vincere — Case Study | Khoa Duong">
@@ -62,9 +58,10 @@
   </div>
 
   <!-- ============ BODY ============
-       Every vincere-NN.webp below is the shared placeholder. Replace a slot by
-       overwriting its file in assets/project-case-study-images/vincere/, keeping
-       the same name. No HTML change needed.
+       Four real media slots, in reading order: the candidate scheduler
+       recording, the Evo workspace demo, the Access Evo film, and the product
+       page. The three videos autoplay muted on a loop, so they need no
+       JavaScript and no controls.
 
        Every text block carries a heading. A block with no badge above it reads
        as a loose offcut of the block before it, so the page does not use one. -->
@@ -78,12 +75,6 @@
     </div>
   </section>
 
-  <!-- Image 01 — the opening shot. Something that sets up the scale of the
-       platform before any of the writing has to explain it. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-01.webp" alt="Placeholder for the opening image of the Vincere case study" loading="lazy">
-  </div>
-
   <section class="section cs-block">
     <h2 class="cs-badge">A Product Built on Options</h2>
     <div class="cs-prose">
@@ -93,10 +84,13 @@
     </div>
   </section>
 
-  <!-- Image 02 — the density argument, shown. A dense view full of tables,
-       filters and settings, so the reader sees the kind of screen described above. -->
+  <!-- Video 01 — the density argument, shown. The scheduler grid, then the
+       booking flow branching through compliance, hour limits and pay rates. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-02.webp" alt="Placeholder for a dense product view full of tables, filters and settings" loading="lazy">
+    <video src="assets/project-case-study-images/vincere/vincere-01.mp4"
+           poster="assets/project-case-study-images/vincere/vincere-01-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="A screen recording of the Vincere candidate scheduler: a week of shifts across a list of candidates, then the four-step booking flow that checks the shift range, compliance, working-hour limits and pay rates before a booking is confirmed"></video>
   </div>
 
   <section class="section cs-block">
@@ -108,12 +102,6 @@
     </div>
   </section>
 
-  <!-- Image 03 — the process, not the interface. A FigJam board of user flows
-       and wireframes beside the Figma file it turned into. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-03.webp" alt="Placeholder for a FigJam flow board beside the Figma file it became" loading="lazy">
-  </div>
-
   <section class="section cs-block">
     <h2 class="cs-badge">How a Ticket Travelled</h2>
     <div class="cs-prose">
@@ -122,12 +110,6 @@
       <p>Only after that came Figma, for the mockups, the prototype and the components behind them. A review with the lead designer, then a review with the product manager, then handoff to engineering. Keeping the exploration out of Figma mattered, because a wireframe invites an opinion about the flow and a polished mockup invites an opinion about the colour.</p>
     </div>
   </section>
-
-  <!-- Image 04 — the system itself: the component library, or a variant table
-       showing one component's full set of states. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-04.webp" alt="Placeholder for the Vincere design system library or a component variant table" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <h2 class="cs-badge">The Design System</h2>
@@ -138,10 +120,13 @@
     </div>
   </section>
 
-  <!-- Image 05 — a handoff as it was delivered: the spec, the states and the
-       edge cases laid out for a developer to build from. -->
+  <!-- Video 02 — what the system produces: the Evo workspace, built from the
+       same components the design system holds. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-05.webp" alt="Placeholder for a developer handoff showing states and edge cases" loading="lazy">
+    <video src="assets/project-case-study-images/vincere/vincere-02.mp4"
+           poster="assets/project-case-study-images/vincere/vincere-02-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="A product video of the Access Vincere Evo workspace, showing the communications panel, the AI assistant prompt, the quick actions row and the actions required cards"></video>
   </div>
 
   <section class="section cs-block">
@@ -153,12 +138,6 @@
     </div>
   </section>
 
-  <!-- Image 06 — the wider remit. The Vincere product beside the Access Evo
-       ecosystem it was being brought into. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-06.webp" alt="Placeholder showing Vincere alongside the wider Access Evo ecosystem" loading="lazy">
-  </div>
-
   <section class="section cs-block">
     <h2 class="cs-badge">Working Across the Group</h2>
     <div class="cs-prose">
@@ -166,12 +145,6 @@
       <p>That meant picking up unfamiliar domains quickly and designing for teams whose conventions were not ours. <strong>The design system experience carried over directly</strong>, because merging separate products into one ecosystem is a consistency problem before it is anything else.</p>
     </div>
   </section>
-
-  <!-- Image 07 — the new way of working: a micro-frontend running in the browser
-       next to the repository it was built in. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-07.webp" alt="Placeholder for a coded micro-frontend beside the repository it was built in" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <h2 class="cs-badge">Designing in the Codebase</h2>
@@ -182,6 +155,15 @@
     </div>
   </section>
 
+  <!-- Video 03 — the wider ecosystem the codebase work fed into. Access Evo's
+       own brand film, not my work: it is here as context for the group. -->
+  <div class="cs-figure">
+    <video src="assets/project-case-study-images/vincere/vincere-03.mp4"
+           poster="assets/project-case-study-images/vincere/vincere-03-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="An Access Evo brand video showing the platform running on desktop and mobile"></video>
+  </div>
+
   <section class="section cs-block">
     <h2 class="cs-badge">Learning to Work With AI</h2>
     <div class="cs-prose">
@@ -189,12 +171,6 @@
       <p>Building inside a real repository gave me the vocabulary that goes with it. Branches, pull requests, merges, pushes and pulls. <strong>I understand how a digital product is built and released</strong>, not only how it is drawn.</p>
     </div>
   </section>
-
-  <!-- Image 08 — the closing shot. Whatever best represents the move from the
-       Figma file to the working product. -->
-  <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-08.webp" alt="Placeholder for the closing image of the Vincere case study" loading="lazy">
-  </div>
 
   <section class="section cs-block">
     <h2 class="cs-badge">What I Took From It</h2>
@@ -204,6 +180,12 @@
       <p><strong>Do not attach yourself to one tool.</strong> I spent five years becoming fluent in Figma, then watched the design step move into the codebase. Following it there, rather than defending the file I was comfortable in, is the part of this work I would want to do again.</p>
     </div>
   </section>
+
+  <!-- Image 04 — the closing shot: the Access Vincere Evo product page and the
+       range of products inside the platform. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/vincere/vincere-04.webp" alt="The Access Vincere Evo product page, listing the AI-powered CRM, the ATS, AI recruitment software, recruitment portals, communication, automation and timesheet products" loading="lazy">
+  </div>
 
   </main>
 
