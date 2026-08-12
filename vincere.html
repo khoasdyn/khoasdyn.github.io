@@ -38,8 +38,10 @@
     <i class="icon i-chevron-left" aria-hidden="true"></i>Back
   </a>
 
+  <main class="cs-main" id="case-study" tabindex="-1">
+
   <!-- ============ TITLE ============ -->
-  <header class="section cs-title" id="case-study">
+  <header class="section cs-title">
     <div class="tag-list">
       <span class="tag">B2B SaaS</span>
       <span class="tag">Design System</span>
@@ -56,7 +58,7 @@
        The same file the homepage card uses. No lazy loading here: it is the
        largest thing above the fold. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/vincere/vincere-cover.webp" alt="The Access Vincere Evo website, showing the recruitment agency software homepage">
+    <img src="assets/project-case-study-images/vincere/vincere-cover.webp" fetchpriority="high" decoding="async" alt="The Access Vincere Evo website, showing the recruitment agency software homepage">
   </div>
 
   <!-- ============ BODY ============
@@ -65,7 +67,7 @@
        the same name. No HTML change needed. -->
 
   <section class="section cs-block">
-    <span class="cs-badge">Project Overview</span>
+    <h2 class="cs-badge">Project Overview</h2>
     <div class="cs-prose">
       <p>I joined Vincere in August 2021 as a product designer and stayed until June 2026. The product is a B2B SaaS platform for recruitment agencies and headhunting firms, most of them in Australia, the UK, Europe and Japan. The web app is what people use every day, with mobile apps alongside it.</p>
       <p>The design team was three people for my first two years, two product designers and a lead, and four after that. Between us we covered all of the UI and UX across the platform, the design system behind it, and the occasional landing page. Day to day we worked with the product managers, the Head of Product, engineering and QA.</p>
@@ -80,7 +82,7 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">The Product</span>
+    <h2 class="cs-badge">The Product</h2>
     <div class="cs-prose">
       <p>Vincere is positioned as a Recruitment OS. It is not one app but an ecosystem, with more than ten smaller products inside it serving recruiters, admins, contacts and candidates. Its surface is wide enough that no one person on the team knew all of it.</p>
       <p>The interfaces are data-dense by nature. Tables, charts, statistics, and flows with a lot of branches. Every view, every screen and every dropdown carries a large amount of information, options and settings.</p>
@@ -88,9 +90,6 @@
     </div>
   </section>
 
-  <section class="section cs-block cs-quote">
-    <p>The job was rarely to remove options. It was to make a screen full of them stay usable.</p>
-  </section>
 
   <!-- Image 02 — the density argument, shown. A dense view full of tables,
        filters and settings, so the reader sees the kind of screen described above. -->
@@ -99,7 +98,7 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">The Sprint Workflow</span>
+    <h2 class="cs-badge">The Sprint Workflow</h2>
     <div class="cs-prose">
       <p>From 2021 until the middle of 2025 the team ran two-week Agile sprints, and a ticket followed the same path every time.</p>
       <p>A product manager wrote the ticket for the feature or update that needed design. The lead designer assigned it across the team. I read it and, where anything was unclear, booked time with the product manager before drawing anything, since customer contact sat with product rather than with design. That conversation was the difference between a design that answered the real request and one that had to be redone after review.</p>
@@ -114,7 +113,7 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">The Design System</span>
+    <h2 class="cs-badge">The Design System</h2>
     <div class="cs-prose">
       <p>A platform this wide cannot stay consistent by hand, and four designers cannot draw more than ten products into agreement one screen at a time. The design system was the work that made the rest of the work possible.</p>
       <p>The four of us built and maintained it in Figma: close to a thousand components, screens, libraries and views, covering more than ten products inside the platform. Every product drew from the same source, so a pattern solved once stayed solved.</p>
@@ -142,7 +141,7 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">Working Across the Group</span>
+    <h2 class="cs-badge">Working Across the Group</h2>
     <div class="cs-prose">
       <p>In June 2025 The Access Group began bringing its products together into a single ecosystem, Access Evo. The design team's remit widened with it. Alongside Vincere we took on work from other products in the group.</p>
       <p>That meant picking up unfamiliar domains quickly and designing for teams whose conventions were not ours. The design system experience carried over directly, because merging separate products into one ecosystem is a consistency problem before it is anything else.</p>
@@ -156,7 +155,7 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">Designing in the Codebase</span>
+    <h2 class="cs-badge">Designing in the Codebase</h2>
     <div class="cs-prose">
       <p>From January 2026 until I left in June, the design step moved out of Figma and into the product itself. Instead of mockups, we built working micro-frontends.</p>
       <p>The loop was short. I worked with the product manager and Claude to build a micro-frontend inside the team's own repository on Azure DevOps. Once there were working versions, we reviewed them with the lead designer and the product manager. When the micro-frontend was agreed, a developer took it to production.</p>
@@ -164,9 +163,6 @@
     </div>
   </section>
 
-  <section class="section cs-block cs-quote">
-    <p>A review moves faster when the thing being reviewed is real.</p>
-  </section>
 
   <!-- Image 07 — the new way of working: a micro-frontend running in the browser
        next to the repository it was built in. -->
@@ -188,13 +184,15 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">What I Took From It</span>
+    <h2 class="cs-badge">What I Took From It</h2>
     <div class="cs-prose">
       <p>Five years on one platform taught me to work with complexity instead of against it. On a product sold on how much it can be configured, the goal is not a simpler screen. It is a dense screen that stays legible and predictable.</p>
       <p>The design system taught me that consistency is infrastructure. Four designers covered more than ten products because the decisions were made once and kept somewhere everyone could reach.</p>
       <p>And the last year taught me not to attach myself to one tool. I spent five years becoming fluent in Figma, then watched the design step move into the codebase. Following it there, rather than defending the file I was comfortable in, is the part of this work I would want to do again.</p>
     </div>
   </section>
+
+  </main>
 
   <!-- ============ CONTACT ============
        Same block as the homepage footer, kept identical on purpose. -->

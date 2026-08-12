@@ -117,7 +117,10 @@
   --pad-y: 64px;
   /* Case study body blocks sit taller than the homepage cards */
   --pad-y-case: 80px;
-  --pad-x-quote: 200px;
+  /* The reading measure. Case study copy is capped at this width and centred
+     in its card, so a line stays around 80 characters instead of running the
+     full 1416px. Images are deliberately not capped. */
+  --measure: 800px;
 
   --font-display: "Alan Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body: "Google Sans Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -597,6 +600,15 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 }
 .back-btn:hover { background: var(--surface-muted); }
 
+/* The case study itself, wrapped in <main> so the page has a main landmark and
+   the skip link lands on the content rather than on a heading. It repeats
+   `.page`'s column so nesting it changes nothing visually. */
+.cs-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-section);
+}
+
 /* ---- Title card ---- */
 .cs-title {
   align-items: center;
@@ -630,6 +642,9 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   flex-direction: column;
   gap: 8px;
   width: 100%;
+  /* Same measure as the body copy, so the lede under the title does not run
+     wider than the paragraphs it introduces. */
+  max-width: var(--measure);
 }
 .cs-title h1 {
   font-family: var(--font-display);
@@ -645,8 +660,20 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 }
 
 /* ---- Body blocks ----
-   The four variants of the Project Overview Section component. */
-.cs-block { padding: var(--pad-y-case) var(--pad-x); }
+   The three variants of the Project Overview Section component.
+
+   A single centred grid column is what caps the reading measure. Grid rather
+   than a max-width on `.cs-prose`, because the badge has to line up with the
+   left edge of that column while still hugging its own text, which
+   `justify-self: start` gives for free. The padding stays as the minimum
+   gutter, so below ~900px the column simply runs out of room and the padding
+   takes over. */
+.cs-block {
+  padding: var(--pad-y-case) var(--pad-x);
+  display: grid;
+  grid-template-columns: minmax(0, var(--measure));
+  justify-content: center;
+}
 
 /* Paragraph stack. The 24px gap is the spacing between paragraphs
    inside one block, not between blocks. */
@@ -667,8 +694,10 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   text-underline-offset: 2px;
 }
 
+/* The section heading. It is an <h2>, so the letter-spacing from the global
+   h2 rule is reset here to keep the pill exactly as the design draws it. */
 .cs-badge {
-  align-self: flex-start;
+  justify-self: start;
   background: var(--brand-soft);
   color: var(--brand-ink);
   border-radius: var(--radius-md);
@@ -677,14 +706,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   font-weight: 500;
   font-size: var(--display-xs);
   line-height: var(--lh-xs);
-}
-
-.cs-quote { padding: var(--pad-y-case) var(--pad-x-quote); }
-.cs-quote p {
-  font-size: var(--display-xs);
-  line-height: var(--lh-xs);
-  font-weight: 400;
-  text-align: center;
+  letter-spacing: normal;
 }
 
 /* Full-bleed 16:9 image. No white card around it, the image is the card. */
@@ -706,7 +728,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 
 /* Laptop: tighten the generous desktop padding */
 @media (max-width: 1200px) {
-  :root { --pad-x: 32px; --pad-y: 48px; --pad-y-case: 64px; --pad-x-quote: 120px; }
+  :root { --pad-x: 32px; --pad-y: 48px; --pad-y-case: 64px; }
   .contact-card { font-size: var(--text-md); }
 }
 
@@ -717,7 +739,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
     --display-sm: 26px; --lh-sm:  34px;
     --display-xs: 20px; --lh-xs:  30px;
     --text-xl:    18px; --lh-xl:  28px;
-    --pad-y-case: 48px; --pad-x-quote: 64px;
+    --pad-y-case: 48px;
   }
   .about-row { flex-direction: column; }
   .about-photo { aspect-ratio: 16 / 10; width: 100%; }
@@ -732,9 +754,6 @@ h3 { font-family: var(--font-display); font-weight: 500; }
     --pad-x: 24px; --pad-y: 32px;
     --pad-y-case: 40px;
   }
-  /* Below this width a 200px inset leaves almost no measure left, so the
-     quote falls back to the same gutter as every other block. */
-  .cs-quote { padding: var(--pad-y-case) var(--pad-x); }
   .projects { grid-template-columns: 1fr; }
   .tool-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-cards { flex-direction: column; }

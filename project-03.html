@@ -39,8 +39,10 @@
     <i class="icon i-chevron-left" aria-hidden="true"></i>Back
   </a>
 
+  <main class="cs-main" id="case-study" tabindex="-1">
+
   <!-- ============ TITLE ============ -->
-  <header class="section cs-title" id="case-study">
+  <header class="section cs-title">
     <div class="tag-list">
       <span class="tag">Tag One</span>
       <span class="tag">Tag Two</span>
@@ -57,16 +59,18 @@
        The same file the homepage card uses. No lazy loading here: it is the
        largest thing above the fold, so it should start downloading at once. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/project-03/project-03-cover.webp" alt="Three phone screens from a book club app: a discover feed, a club page, and a book detail view">
+    <img src="assets/project-case-study-images/project-03/project-03-cover.webp" fetchpriority="high" decoding="async" alt="Three phone screens from a book club app: a discover feed, a club page, and a book detail view">
   </div>
 
   <!-- ============ BODY ============
-       Four block types, mirroring the Project Overview Section variants:
+       Three block types, mirroring the Project Overview Section variants:
 
          .cs-block            Normal Text   one or more paragraphs
          .cs-block + .cs-badge  Heading     lime label above the paragraphs
          .cs-figure           Placeholder Image   full-bleed 16:9
-         .cs-block.cs-quote   Block Quote   centred, larger, inset
+
+       Text blocks cap their own width at --measure and centre it. Images do
+       not, so they stay full-bleed against the narrower column of copy.
 
        Reorder, repeat or drop these freely per project. Every image slot
        takes the same tag, numbered in reading order:
@@ -76,7 +80,7 @@
 
   <!-- Heading -->
   <section class="section cs-block">
-    <span class="cs-badge">Project Overview</span>
+    <h2 class="cs-badge">Project Overview</h2>
     <div class="cs-prose">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur nisi leo, nec eleifend mauris facilisis eget. Cras finibus ligula vitae odio vestibulum, et faucibus ex finibus. Fusce ante elit, egestas et felis nec, egestas finibus dui. Etiam sit amet lacus sagittis, suscipit leo vel, molestie ipsum. Vivamus eget sollicitudin risus.</p>
       <p>Etiam rhoncus, nibh a molestie iaculis, dui libero feugiat enim, ut vulputate est massa eget neque. Morbi molestie justo vitae lectus accumsan, pretium pretium nisi lobortis. Sed efficitur rhoncus vehicula. Sed aliquam ultricies ullamcorper.</p>
@@ -98,7 +102,7 @@
 
   <!-- Heading -->
   <section class="section cs-block">
-    <span class="cs-badge">Section Heading</span>
+    <h2 class="cs-badge">Section Heading</h2>
     <div class="cs-prose">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur nisi leo, nec eleifend mauris facilisis eget. Cras finibus ligula vitae odio vestibulum, et faucibus ex finibus. Fusce ante elit, egestas et felis nec, egestas finibus dui. Etiam sit amet lacus sagittis, suscipit leo vel, molestie ipsum. Vivamus eget sollicitudin risus.</p>
       <p>Etiam rhoncus, nibh a molestie iaculis, dui libero feugiat enim, ut vulputate est massa eget neque. Morbi molestie justo vitae lectus accumsan, pretium pretium nisi lobortis. Sed efficitur rhoncus vehicula. Sed aliquam ultricies ullamcorper.</p>
@@ -118,22 +122,19 @@
   <!-- Image 04 -->
   <div class="cs-figure"></div>
 
-  <!-- Block quote -->
-  <section class="section cs-block cs-quote">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur nisi leo, nec eleifend mauris facilisis eget. Cras finibus ligula vitae odio vestibulum, et faucibus ex finibus. Fusce ante elit, egestas et felis nec, egestas finibus dui.</p>
-  </section>
-
   <!-- Image 05 -->
   <div class="cs-figure"></div>
 
   <!-- Heading -->
   <section class="section cs-block">
-    <span class="cs-badge">Section Heading</span>
+    <h2 class="cs-badge">Section Heading</h2>
     <div class="cs-prose">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consectetur nisi leo, nec eleifend mauris facilisis eget. Cras finibus ligula vitae odio vestibulum, et faucibus ex finibus. Fusce ante elit, egestas et felis nec, egestas finibus dui. Etiam sit amet lacus sagittis, suscipit leo vel, molestie ipsum. Vivamus eget sollicitudin risus.</p>
       <p>Etiam rhoncus, nibh a molestie iaculis, dui libero feugiat enim, ut vulputate est massa eget neque. Morbi molestie justo vitae lectus accumsan, pretium pretium nisi lobortis. Sed efficitur rhoncus vehicula. Sed aliquam ultricies ullamcorper.</p>
     </div>
   </section>
+
+  </main>
 
   <!-- ============ CONTACT ============
        Same block as the homepage footer, kept identical on purpose. -->

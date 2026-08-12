@@ -34,8 +34,10 @@
     <i class="icon i-chevron-left" aria-hidden="true"></i>Back
   </a>
 
+  <main class="cs-main" id="case-study" tabindex="-1">
+
   <!-- ============ TITLE ============ -->
-  <header class="section cs-title" id="case-study">
+  <header class="section cs-title">
     <div class="tag-list">
       <span class="tag">Chrome Extension</span>
       <span class="tag">Productivity &amp; Education</span>
@@ -52,7 +54,7 @@
        The real cover, the same file the homepage card uses. No lazy loading
        here: it is the largest thing above the fold. -->
   <div class="cs-figure">
-    <img src="assets/project-case-study-images/glowsary/glowsary-cover.webp" alt="The Glowsary home screen, with saved words shown as coloured cards">
+    <img src="assets/project-case-study-images/glowsary/glowsary-cover.webp" fetchpriority="high" decoding="async" alt="The Glowsary home screen, with saved words shown as coloured cards">
   </div>
 
   <!-- ============ BODY ============
@@ -61,7 +63,7 @@
        it needs no JavaScript and no controls. -->
 
   <section class="section cs-block">
-    <span class="cs-badge">Project Overview</span>
+    <h2 class="cs-badge">Project Overview</h2>
     <div class="cs-prose">
       <p>Glowsary is a Chrome extension that adds a personal vocabulary layer over the web. You save a word or phrase with your own definition, and from then on that word carries a quiet underline everywhere it appears while you read. Hover it and your definition comes back.</p>
       <p>The closest thing people already know is Word Wise on a Kindle. The difference is that the words are the ones you chose, not a fixed list, and the meaning stays hidden until you ask for it.</p>
@@ -76,16 +78,13 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">The Problem</span>
+    <h2 class="cs-badge">The Problem</h2>
     <div class="cs-prose">
       <p>I read a lot of English articles on Medium and Substack. I kept looking up the same word again and again and never remembered it. Nothing on the page told me I had already searched for that word before, so every new article felt like meeting it for the first time.</p>
       <p>The effort of the lookup was real, but it disappeared the moment I closed the tab. That is the thing I wanted to fix. Not teaching vocabulary, and not testing anyone. Just making sure the work a reader already did stays visible to them.</p>
     </div>
   </section>
 
-  <section class="section cs-block cs-quote">
-    <p>Every new page felt like the first time I had met that word.</p>
-  </section>
 
   <!-- Video 02 — the product working end to end: underlined words in a real
        article, the definition on hover, right-click to save a new word, then the
@@ -98,7 +97,7 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">How I Worked</span>
+    <h2 class="cs-badge">How I Worked</h2>
     <div class="cs-prose">
       <p>Being the only person on a project sounds like freedom. In practice it removes every natural checkpoint, so I had to build my own.</p>
       <p>I wrote a product requirements document first and kept it as the single source of truth for the whole project. Every behaviour in the product is a numbered requirement in that file, down to the minimum length of a saved word, what a duplicate does, and what the interface shows when a saved image link stops working.</p>
@@ -111,9 +110,6 @@
     </div>
   </section>
 
-  <section class="section cs-block cs-quote">
-    <p>No code gets written until there is a plan I have read and approved.</p>
-  </section>
 
   <!-- Image 03 — the Settings tab: interface language, the excluded sites
        list, and the rewritable auto-generate prompt. -->
@@ -122,7 +118,7 @@
   </div>
 
   <section class="section cs-block">
-    <span class="cs-badge">Designing the Highlight</span>
+    <h2 class="cs-badge">Designing the Highlight</h2>
     <div class="cs-prose">
       <p>The hardest design problem was that Glowsary does not own the page it appears on. The same highlight has to sit on a news site, a personal blog and a GitHub issue, and stay readable and quiet on all of them.</p>
       <p>I settled on a dashed underline in the colour of the saved word. Dashed so it is never mistaken for a hyperlink, and coloured so a reader can tell their own groups of words apart at a glance.</p>
@@ -138,7 +134,7 @@
 
 
   <section class="section cs-block">
-    <span class="cs-badge">Decisions I Had to Defend</span>
+    <h2 class="cs-badge">Decisions I Had to Defend</h2>
     <div class="cs-prose">
       <p><strong>Matching is exact, and nothing is guessed.</strong> Saving "love" does not highlight "loved" or "loving". Guessing word forms would have been easy to build and impossible for a reader to predict. Instead they add the forms they want as aliases, so "version" and "versions" share one definition. What lights up stays under their control.</p>
       <p><strong>The same word can be saved more than once.</strong> There is no duplicate check anywhere in the product. A word can carry several meanings, so the popup pages through them, newest first. Blocking duplicates would have forced people to squeeze two meanings into one field.</p>
@@ -149,7 +145,7 @@
 
 
   <section class="section cs-block">
-    <span class="cs-badge">Rethinking the AI Feature</span>
+    <h2 class="cs-badge">Rethinking the AI Feature</h2>
     <div class="cs-prose">
       <p>Writing your own definition is the default, but there is an optional action that drafts one for you. It shipped first with an API key built into the extension, shared by everyone. It kept getting blocked, which is obvious in hindsight. A key inside a published extension is public to anyone who cares to look.</p>
       <p>I removed it and moved to the reader's own free Gemini key, added in Settings. That is a worse first run and I knew it, so I made the setup as short as I could: a direct link to where the key is created, and a tutorial video embedded under the field so nobody has to leave the page to follow it.</p>
@@ -164,7 +160,7 @@
 
 
   <section class="section cs-block">
-    <span class="cs-badge">The Design System</span>
+    <h2 class="cs-badge">The Design System</h2>
     <div class="cs-prose">
       <p>Figma is the upstream source and the code is never allowed to guess a value. Every colour, size, radius, shadow and gap is a token generated from the Figma export, one file per category, and no component may write a raw hex or a raw pixel size. If a value I need does not exist as a token, the rule is to stop and add it in Figma first rather than invent it in code.</p>
       <p>Colour has two layers. Primitives are the raw palette. Semantic tokens name a role, like the main text colour or a border, and point at a primitive. On top of those sits a mode-switched group for the word cards: five modes, one neutral and one for each colour a reader can pick, covering the card surface, its border, the alias chips, the definition text and all three states of the on-page underline.</p>
@@ -174,7 +170,7 @@
 
 
   <section class="section cs-block">
-    <span class="cs-badge">Taking It Off the Web</span>
+    <h2 class="cs-badge">Taking It Off the Web</h2>
     <div class="cs-prose">
       <p>The last large addition moved the same reading layer off the web and into local PDF files. Same matching, same underline, same popup, same right-click to save a word without leaving the page.</p>
       <p>The first version rendered every page of a PDF the moment it opened, which was slow enough to feel broken. I changed it to render only the pages in view plus one screen ahead. A 57 page test file went from roughly 6.3 seconds and 57 rendered pages down to about 0.1 seconds and 2.</p>
@@ -189,12 +185,14 @@
   </section>
 
   <section class="section cs-block">
-    <span class="cs-badge">What I Took From It</span>
+    <h2 class="cs-badge">What I Took From It</h2>
     <div class="cs-prose">
       <p>Writing the requirements before the interface changed how I work. When every behaviour is written down as a rule, the edge cases surface while they are still cheap to change, instead of after the screens exist and someone has to redraw them.</p>
       <p>It also gave me a way of working with AI that I actually trust. I do the thinking and the deciding, the AI does the typing, and the written plan in between is what keeps us both honest. That is the same shape as working with a developer, which is what made it easy to fall into.</p>
     </div>
   </section>
+
+  </main>
 
   <!-- ============ CONTACT ============
        Same block as the homepage footer, kept identical on purpose. -->
