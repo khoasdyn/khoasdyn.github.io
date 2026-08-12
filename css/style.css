@@ -85,7 +85,7 @@
 
   --text:          var(--zinc-900);   /* headings and primary copy */
   /* Inline links in case study copy. lime-600 is only 3.1:1 on white, so
-     links use lime-700 at 5.4:1 instead. */
+     links use lime-700 at 5.0:1 instead. */
   --link:          var(--lime-700);
   --text-muted:    var(--zinc-600);
   --text-subtle:   var(--zinc-500);   /* education sub-labels */
@@ -118,7 +118,7 @@
   /* Case study body blocks sit taller than the homepage cards */
   --pad-y-case: 80px;
   /* The reading measure. Case study copy is capped at this width and centred
-     in its card, so a line stays around 80 characters instead of running the
+     in its card, so a line stays around 65 characters instead of running the
      full 1416px. Images are deliberately not capped. */
   --measure: 800px;
 
@@ -344,7 +344,14 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   font-weight: 400;
 }
 
+/* The width has to be stated. As a flex item with no basis, the photo took its
+   size from the image inside it, and that image is `width: 100%` of a container
+   whose width was not yet known, so it resolved to zero: the portrait collapsed
+   to nothing on every screen above 900px and, being lazy, never even loaded.
+   A percentage of the row keeps it square and roughly the height of the card
+   beside it, which is what the design draws. */
 .about-photo {
+  width: clamp(240px, 30%, 440px);
   aspect-ratio: 1;
   border-radius: var(--radius-4xl);
   overflow: hidden;
@@ -553,8 +560,12 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 .contact-card:hover { transform: translateY(-2px); }
 .contact-card img { flex-shrink: 0; }
 
+/* The two third-party labels carry their own brand colour so each matches its
+   own logo. The email label has no logo to match, so it uses the same lime as
+   an inline link: lime-600 was both a raw primitive in a component rule and
+   only 3.1:1 on white, which fails WCAG AA. --link is lime-700 at 5.0:1. */
 .contact-substack { color: var(--brand-substack); }
-.contact-email    { color: var(--lime-600); }
+.contact-email    { color: var(--link); }
 .contact-linkedin { color: var(--brand-linkedin); }
 
 /* =========================================================
@@ -587,10 +598,11 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 }
 .back-btn:hover { background: var(--surface-muted); }
 
-/* The case study itself, wrapped in <main> so the page has a main landmark and
-   the skip link lands on the content rather than on a heading. It repeats
-   `.page`'s column so nesting it changes nothing visually. */
-.cs-main {
+/* The <main> landmark on every page: the case study on a project page, the whole
+   body of the homepage on index.html. It repeats `.page`'s column, so nesting it
+   changes nothing visually. */
+.cs-main,
+.page-main {
   display: flex;
   flex-direction: column;
   gap: var(--gap-section);
@@ -696,7 +708,6 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   letter-spacing: normal;
 }
 
-/* Full-bleed 16:9 image. No white card around it, the image is the card. */
 /* Body media keeps whatever shape it was exported at. No fixed box and no
    object-fit, so nothing is ever cropped: the figure is as tall as the image
    inside it. A 4:3 screenshot stays 4:3, a 16:9 one stays 16:9. */
