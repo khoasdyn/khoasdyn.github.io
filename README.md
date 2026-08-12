@@ -10,7 +10,7 @@ Plain HTML and CSS. No build step, no framework, no package manager, no JavaScri
 index.html          Homepage
 glowsary.html       One case study page per project, named for its slug
 vincere.html
-project-03.html
+tailorwing.html
 project-04.html
 css/style.css       All styles for every page, including the design tokens
 assets/
