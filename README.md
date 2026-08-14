@@ -11,7 +11,8 @@ index.html          Homepage
 glowsary.html       One case study page per project, named for its slug
 vincere.html
 tailorwing.html
-ai-transcription.html
+guessify.html
+ai-transcription.html   currently hidden; its homepage card is commented out
 css/style.css       All styles for every page, including the design tokens
 assets/
 ├── fonts/          Two variable WOFF2 files plus their OFL licences
@@ -39,20 +40,20 @@ Lime and Zinc are the only palettes. The two footer link labels carry their own 
 
 ## Case study pages
 
-One page per project, named for the same slug as its image folder. Each is built from four block types, so a page is assembled rather than styled from scratch:
+One page per project, named for the same slug as its image folder. Each is built from two block types, so a page is assembled rather than styled from scratch:
 
 | Block | Markup |
 |---|---|
-| Paragraphs | `.section.cs-block` wrapping `.cs-prose` |
-| Heading | the same, with a `.cs-badge` label above |
-| Image | `.cs-figure` holding one `<img>` |
-| Block quote | `.section.cs-block.cs-quote` |
+| Text | `.section.cs-block` with an `<h2 class="cs-badge">` then `.cs-prose` |
+| Image | `.cs-figure` holding one `<img>` or `<video>` |
 
-Not every section carries a heading. The plain paragraph block exists so a section can continue the previous thought without starting a new one.
+**Every text block carries a heading.** There is no unheaded variant and no block quote; both were removed in August 2026. An unlabelled slab of text after a card break reads as disconnected from what came before it, so a block without a heading is either the tail of the previous section or a new idea that has not been named yet. The badge is a real `<h2>`, which is what gives each page its heading outline.
+
+Text blocks cap at `--measure` (800px) and centre inside the card. Figures stay full-bleed and as tall as their own media, so nothing is ever cropped. The one exception is the cover, which takes `.cs-cover` and matches the homepage card's 16:10 box.
 
 The homepage project cards link to these pages. The contact footer is the same markup as the homepage.
 
-Every image slot ships as a real file rather than an empty element, so a slot can be filled later by overwriting the file without touching the HTML. Pages still holding placeholder copy or placeholder images carry `<meta name="robots" content="noindex">` until they are finished.
+Every image slot ships as a real file rather than an empty element, so a slot can be filled later by overwriting the file without touching the HTML. A page carries `<meta name="robots" content="noindex">` while it still holds placeholder copy or images, or while it is deliberately hidden from the homepage.
 
 ## Icons
 
@@ -69,15 +70,21 @@ Logos keep their own baked-in colours and stay as plain `<img>`.
 
 ## Images
 
-Ship WebP, sized at roughly twice the display size, quality ~82. Project covers cap at 1600px wide and photos at 1000px. Everything below the hero is `loading="lazy"`, the one exception being the cover on a case study page, which is the largest thing above its fold.
+Ship WebP, never the raw PNG or JPEG. Photos are sized at roughly twice their display size at quality ~82, capped at 1000px.
 
-**Project case study images:** one folder per project slug under `assets/project-case-study-images/`. Prefix every filename with that slug. Order is `cover` for the homepage card, then `01`, `02`, … for case study pages. Full rules are in `Portfolio Website Guidelines.md` at the workspace root.
+**Case study media is lossless WebP at the source's own native size, with no resize step.** Lossless WebP is pixel-for-pixel identical to the source PNG and smaller than it. The old 1600px cap was the reason earlier pages looked soft: the case study card is 1416 CSS pixels wide, which is 2832 real pixels on a retina screen, so a 1600px file was being blown up almost 2x. The cost is weight, and Guessify is the heaviest page at 9.5 MB.
+
+Every `<img>` and `<video>` carries `width` and `height` set to the file's real pixel size, because a body figure has no fixed height and a lazy image without them is zero pixels tall until it loads. Everything below the hero is `loading="lazy"`, the one exception being the cover on a case study page, which is the largest thing above its fold.
+
+Screen recordings are transcoded to H.264 (an iPhone capture is H.265, which Chrome and Firefox handle inconsistently), autoplay muted on a loop, and carry a WebP `poster`. A portrait recording is centred on a solid colour inside a 16:9 frame rather than stretched full-bleed.
+
+**Project case study images:** one folder per project slug under `assets/project-case-study-images/`. Each file keeps the name it was exported under, lowercased; `cover` is the homepage card. Full rules are in `Portfolio Website Guidelines.md` at the workspace root.
 
 One exception: `profile-photo-og.jpg` is a JPEG on purpose. It is the social link preview, and scrapers cannot read WebP.
 
 ## Responsive
 
-Breakpoints at 1200, 900, 700 and 480px, shared by every page. The two-up blocks stack at 900, projects go single column at 700, and the contact cards stack. On a case study page the block padding steps down at each breakpoint and the quote's 200px inset collapses to the normal gutter below 700.
+Breakpoints at 1200, 900, 700 and 480px, shared by every page. The two-up blocks stack at 900, projects go single column at 700, and the contact cards stack. On a case study page the block padding steps down at each breakpoint. Below roughly 860px the card is narrower than the 800px measure, so `--pad-x` takes over on its own and no extra breakpoint is needed.
 
 ## Run locally
 

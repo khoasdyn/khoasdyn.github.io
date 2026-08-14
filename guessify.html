@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Guessify — Case Study | Khoa Duong</title>
+<meta name="description" content="How I designed a two-mode fruit quiz game in Figma and then built it myself in SwiftUI, as a designer learning to ship his own screens.">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://khoasdyn.github.io/guessify.html">
+<meta property="og:title" content="Guessify — Case Study | Khoa Duong">
+<meta property="og:description" content="An iOS quiz game about Vietnamese fruit. I designed every screen in Figma, then learned enough SwiftUI to build it.">
+<meta property="og:image" content="https://khoasdyn.github.io/assets/images/profile-photo-og.jpg">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#09090B">
+<link rel="canonical" href="https://khoasdyn.github.io/guessify.html">
+<link rel="icon" href="assets/images/logo-avatar.png">
+
+<link rel="preload" href="assets/fonts/alan-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/google-sans-flex-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<div class="page">
+
+  <!-- ============ BACK ============ -->
+  <a class="back-btn" href="index.html">
+    <i class="icon i-chevron-left" aria-hidden="true"></i>Back
+  </a>
+
+  <main class="cs-main" id="case-study">
+
+  <!-- ============ TITLE ============ -->
+  <header class="section cs-title">
+    <div class="tag-list">
+      <span class="tag">iOS App</span>
+      <span class="tag">Game &amp; Learning</span>
+      <span class="tag">Figma &amp; SwiftUI</span>
+    </div>
+
+    <div class="cs-title-text">
+      <h1>Guessify: I Designed a Quiz Game, Then Built It in SwiftUI</h1>
+      <p>A fruit quiz for iOS with two ways to play. I drew every screen in Figma, then learned enough SwiftUI to build the whole thing myself, so my design had to survive being real rather than clickable.</p>
+    </div>
+  </header>
+
+  <!-- ============ COVER ============
+       The real cover, the same file the homepage card uses. No lazy loading
+       here: it is the largest thing above the fold. -->
+  <div class="cs-figure cs-cover">
+    <img src="assets/project-case-study-images/guessify/guessify-cover.webp" width="1600" height="900" fetchpriority="high" decoding="async" alt="A grid of Guessify screens on a purple background, showing the two game modes, the answer sheets and the end screens">
+  </div>
+
+  <!-- ============ BODY ============
+       Nine media slots in reading order: the onboarding board, the Mind Match
+       board, the two framed gameplay recordings, the Uncover It board, the
+       Figma screen board, the Figma component library, a logic diagram and the
+       Xcode project. Each file keeps the name Khoa exported it under, so a
+       re-export can be dropped straight in. Both videos autoplay muted on a
+       loop, so they need no JavaScript and no controls.
+
+       Every text block carries a heading. A block with no badge above it reads
+       as a loose offcut of the block before it, so the page does not use one. -->
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Project Overview</h2>
+    <div class="cs-prose">
+      <p>Guessify is an iOS quiz game about fruit. There are two ways to play, 34 fruits, and one shared bank of questions behind both of them. I designed every screen in Figma and then wrote the app myself in SwiftUI.</p>
+      <p>It was a personal project with one purpose: <strong>to learn SwiftUI well enough to build my own designs instead of handing them over.</strong> It is not on the App Store and was never meant to be. The fruit illustrations were drawn by a friend. The design and the code are mine, and the <a href="https://github.com/khoasdyn/guessify" target="_blank" rel="noopener noreferrer">source is on GitHub</a>.</p>
+      <p>It took a little over four months. Writing the code and fixing the bugs took far longer than drawing the screens did, which is the part of this project I did not expect and learned the most from.</p>
+    </div>
+  </section>
+
+  <!-- Onboarding — the way in: the home screen with its two mode cards, then the
+       How to Play screen for each mode. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/guessify/guessify-onboarding.webp" width="1600" height="900" alt="Three Guessify screens: the home screen with the Uncover It and Mind Match cards, then the pink and orange How to Play screens for each mode" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Rules Before the Game</h2>
+    <div class="cs-prose">
+      <p><strong>The rules get a screen of their own.</strong> Not a tooltip, not a first-run tutorial, and not something you work out by losing. Tapping a mode on the home screen takes you to a full colour screen with an illustration and the exact numbers, and the only thing on it is Play Now.</p>
+      <p>Both screens state what an answer is actually worth. Uncover It gives you 60 seconds, adds 2 seconds for a correct answer, and takes 3 seconds plus a life for a wrong one. Mind Match gives you 15 questions and 3 helps, and tells you plainly that one wrong move ends the game.</p>
+      <p>A quiz where you find out what a wrong answer costs by paying it once is not a fair quiz. I wanted the player to be able to weigh a guess before they made it, which they cannot do if the rules are still a surprise.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Why Vietnamese Fruit</h2>
+    <div class="cs-prose">
+      <p><strong>I wanted the subject of the app to be about Vietnam, because I am Vietnamese.</strong> That was decided before any screen existed, and it settled the content of the whole game.</p>
+      <p>So the bank is Gac, mangosteen, longan, jackfruit, calamansi, jicama, tamarind, ube, star fruit and okra, alongside the ones everybody knows. A general fruit quiz tends to stop at apples and bananas. This one is worth playing partly because a lot of the answers are things you have to actually look at and think about.</p>
+    </div>
+  </section>
+
+  <!-- Mind Match board — a written question over a grid of four fruit
+       pictures, the wrong-answer state, and the full score ladder. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/guessify/guessify-mode2.webp" width="1600" height="900" alt="Three Mind Match screens on pink: a written question above four fruit pictures, the Wrong Answer state, and the final score screen listing all fifteen rungs of the ladder" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Two Modes, Two Colours</h2>
+    <div class="cs-prose">
+      <p>The two modes are deliberate mirror images of each other. <strong>Uncover It shows you a picture and asks for the name. Mind Match asks in words and makes you point at the picture.</strong> Same fruit, same bank, learned in both directions, and the second one is genuinely harder because recognising a picture is easier than recalling one.</p>
+      <p>That mirroring runs down to the answer buttons. Uncover It gives three plain text options in a stack, because the picture is already the question and the screen should not compete with it. Mind Match gives four picture tiles in a grid, because there the words are the question.</p>
+      <p><strong>Each mode owns a colour and never lets go of it.</strong> Orange belongs to Uncover It and pink belongs to Mind Match, and the colour carries through the home card, the How to Play screen, the buttons, the sheets and the end screen. Two games living in one app can blur together, and colour is the cheapest way to make sure a player always knows which one they are inside.</p>
+    </div>
+  </section>
+
+  <!-- Uncover It recording — played end to end: picking the mode, answering a
+       picture, the timer draining, and the run ending. Framed on the mode's own
+       orange at Khoa's request so a portrait recording is not blown up to full
+       card width. Muted and looping, so no controls and no audio. -->
+  <div class="cs-figure">
+    <video src="assets/project-case-study-images/guessify/video-mode1-gameplay.mp4" width="3200" height="1800"
+           poster="assets/project-case-study-images/guessify/video-mode1-gameplay-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="A screen recording of Uncover It: choosing the mode from the home screen, naming a watermelon from its picture, the confirmation sheet adding two seconds, and the run ending on the out of lives screen"></video>
+  </div>
+
+  <!-- Mind Match recording — played end to end: the score climbing question by
+       question and a help being spent. Framed on the mode's own pink. -->
+  <div class="cs-figure">
+    <video src="assets/project-case-study-images/guessify/video-mode2-gameplay.mp4" width="3200" height="1800"
+           poster="assets/project-case-study-images/guessify/video-mode2-gameplay-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="A screen recording of Mind Match: answering written questions by tapping fruit pictures, the score chip climbing from zero to eight hundred, and the Choose a Help sheet offering fifty-fifty, hint and swap"></video>
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Knowing Where You Stand</h2>
+    <div class="cs-prose">
+      <p><strong>Answering stops the game rather than sliding past it.</strong> A sheet comes up over the options, says whether you were right, and spells out exactly what it cost or earned before you can continue. "Correct, plus 2.0 seconds" is a small piece of copy, but it is the difference between a player who understands the game and one who is only pressing things.</p>
+      <p>In Uncover It that sheet also pauses the clock, which matters more than it sounds. The timer is the entire pressure of that mode, so reading your own result had to be free. Otherwise the game punishes you for paying attention to it.</p>
+      <p>The rest of the state is permanently on screen and never hidden behind a tap. Uncover It carries a draining bar and a life count in its header. Mind Match carries the question number, a progress bar and a running score chip. <strong>At any moment you can see how much game is left and how you are doing in it.</strong></p>
+    </div>
+  </section>
+
+  <!-- Uncover It board — a fruit picture over three text answers, the
+       confirmation sheet with its plus two seconds, and the end screen with
+       questions, correct and streak. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/guessify/guessify-mode1.webp" width="1600" height="900" alt="Three Uncover It screens on orange: a herb illustration above three text answers, the green Correct sheet showing plus 2.0 seconds, and the end screen with an illustrated dog and the questions, correct and streak counts" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Designing the Endings</h2>
+    <div class="cs-prose">
+      <p>A quiz game is mostly endings. You will finish a run far more often than you will finish the whole bank, so the screen you see when it stops is the screen you see the most.</p>
+      <p><strong>Every ending gets its own character and its own sentence.</strong> Running out of time is not the same feeling as running out of lives, and neither is the same as answering the last question, so none of them share a screen. "Time's Up", "Oops, Out of Lives", "Uh-oh, That Was Rough" and "You Did It" each have their own illustration and their own line of copy. One generic Game Over would have been faster to draw and would have made every loss feel identical.</p>
+      <p><strong>Mind Match ends on the whole ladder, not a number.</strong> All fifteen rungs from 100 to 50,000 are listed with the milestones marked, and your own row is highlighted where you stopped. A single final score tells you how you did. The ladder tells you how far you got and exactly how much was still above you, which is the thing that makes you press play again.</p>
+    </div>
+  </section>
+
+  <!-- Figma screens — every screen of both modes drawn in Figma before any code
+       existed, laid out as two rows, one per game. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/guessify/screenshot-project-figma-mockup.webp" width="3984" height="2696" alt="The Guessify Figma file, with every screen of both game modes laid out in two numbered rows, one row per game" loading="lazy">
+  </div>
+
+  <!-- Figma library — the component library behind those screens, grouped by kind. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/guessify/screenshot-project-components.webp" width="3984" height="2696" alt="The Guessify component library in Figma, grouped into buttons, icons, illustrations, popups, progress bars, tags, cards, badges, sections and iOS components" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">From Figma to Xcode</h2>
+    <div class="cs-prose">
+      <p>Every screen was drawn in Figma first, both modes end to end, and behind them a component library grouped by kind: buttons, illustrations, popups, progress bars, tags, cards and badges. That library is the reason two games with different colours and different answer layouts still look like one app.</p>
+      <p>Then I opened Xcode, and the interesting part started. <strong>Building your own design is the fastest way to find out which parts of it you never actually decided.</strong> A mockup can show a button in one state and quietly skip the other five. Code cannot. Every state I had not drawn became a question I had to answer, usually while halfway through writing it.</p>
+      <p>When logic got past what I could hold in my head, I stopped coding and drew it. Flow diagrams for the getters, setters and branches, laid out the same way I would lay out a user flow. <strong>Drawing the logic is the same skill as drawing a screen</strong>, and it turned out to be the thing that got me through the parts of Swift I did not understand yet.</p>
+    </div>
+  </section>
+
+  <!-- Logic diagram — a piece of Swift logic drawn out as a flow diagram in Figma
+       while learning. This is a working draft from Khoa's own study file, shown
+       as evidence of the method rather than for what the specific logic does. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/guessify/screenshot-flow-diagram.webp" width="3984" height="2696" alt="A flow diagram drawn in Figma, breaking a piece of Swift getter and setter logic into colour-coded steps and branches" loading="lazy">
+  </div>
+
+  <!-- Xcode project — the finished Xcode project, showing how the app is organised. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/guessify/screenshot-xcode-files.webp" width="3984" height="2696" alt="The Guessify project open in Xcode, with the file navigator showing the App, Component, Config, Extension, Model, Protocol and View folders" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">What I Would Fix</h2>
+    <div class="cs-prose">
+      <p>The interface is simpler than the one I drew, and the reason is plain: <strong>my SwiftUI was only ever basic, so I designed down to what I could actually finish.</strong> Motion is where that shows most. Screens change, sheets appear, and almost nothing moves in between.</p>
+      <p>That is the first thing I would go back and fix. The transitions between question and result, the score climbing the ladder rather than jumping up it, the fruit arriving on screen rather than being there already. All of it is designed. None of it is built, and the game is flatter for it.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">What Building It Taught Me</h2>
+    <div class="cs-prose">
+      <p>I am a product designer, not an iOS developer, and this project did not change that. What it changed is what I am able to hand over. <strong>I now know roughly what a screen costs before I draw it</strong>, because I have paid for a few myself.</p>
+      <p>It also made me better at the unglamorous half of design. Empty states, loading states, what happens on the very first question and the very last one. Those are the states nobody asks for in a review and every build needs on day one. Four months of finding them the hard way is a habit I kept.</p>
+      <p>The wider lesson is the one I have carried into everything since: a design is not finished when it looks right, it is finished when someone can build it without guessing. Building this one myself is simply the most direct way I have found to learn where the guessing would have been.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ CONTACT ============
+       The same block as the homepage footer apart from the nav button at the
+       bottom, which is the "Back to home" variant here and "Back to top" there. -->
+  <footer class="contact">
+    <div class="contact-body">
+      <h2>Let's connect!</h2>
+
+      <div class="contact-cards">
+        <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+           target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
+          <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+        </a>
+        <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+           aria-label="Email me at khoasdyn@gmail.com">
+          <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+        </a>
+        <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+           target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
+          <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+        </a>
+      </div>
+    </div>
+
+    <!-- The "Back to home" variant, which is the one a case study carries.
+         It repeats the back button at the top of the page on purpose, so the
+         reader does not have to scroll back up to leave. -->
+    <a class="contact-nav" href="index.html">
+      <i class="icon i-chevron-left" aria-hidden="true"></i>Back to home
+    </a>
+  </footer>
+
+</div>
+</body>
+</html>
