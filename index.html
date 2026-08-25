@@ -223,8 +223,13 @@
   <div class="lower-grid">
 
     <section class="section education">
-      <h2>Education</h2>
+      <h2>Education &amp; Certificates</h2>
 
+      <!-- The three "Show credential" pills all point at the LinkedIn profile,
+           where the certifications are listed, because there are no per-course
+           credential URLs yet. Each carries its own aria-label so a screen
+           reader does not hear "Show credential" three times with no context.
+           Swap an href the moment a real certificate link exists. -->
       <div class="edu-list">
         <div class="edu-item">
           <span class="edu-logo"><img src="assets/logos/hcmiu-logo.svg" alt="" width="40" height="40"></span>
@@ -239,8 +244,24 @@
         <div class="edu-item">
           <span class="edu-logo"><img src="assets/logos/google-logo.svg" alt="" width="40" height="40"></span>
           <div class="edu-text">
-            <h3>Foundations of User Experience (UX) Design</h3>
-            <p>Google UX Design Certificate</p>
+            <h3>Google UX Design Certificate</h3>
+            <a class="edu-credential" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Show the Google UX Design Certificate credential on LinkedIn">
+              Show credential<i class="icon icon-16 i-link-external" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <span class="edu-logo"><img src="assets/logos/calart-logo.webp" alt="" width="40" height="40"></span>
+          <div class="edu-text">
+            <h3>California Institute of the Arts</h3>
+            <a class="edu-credential" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Show the California Institute of the Arts credential on LinkedIn">
+              Show credential<i class="icon icon-16 i-link-external" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
@@ -248,7 +269,11 @@
           <span class="edu-logo"><img src="assets/logos/ixdf-logo.svg" alt="" width="40" height="40"></span>
           <div class="edu-text">
             <h3>IxDF – Interaction Design Foundation</h3>
-            <p>3+ Certificates</p>
+            <a class="edu-credential" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Show the Interaction Design Foundation credentials on LinkedIn">
+              Show credential<i class="icon icon-16 i-link-external" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>

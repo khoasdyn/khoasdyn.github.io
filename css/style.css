@@ -82,6 +82,9 @@
   --surface:       var(--white);      /* section cards */
   --surface-muted: var(--zinc-100);   /* project label strip */
   --border:        var(--zinc-200);
+  /* Only shows on hover, so it has to read against zinc-100 rather than
+     white. zinc-200 disappears on that fill, zinc-400 does not. */
+  --border-strong: var(--zinc-400);
 
   --text:          var(--zinc-900);   /* headings and primary copy */
   /* Inline links in case study copy. lime-600 is only 3.1:1 on white, so
@@ -259,6 +262,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   -webkit-mask: var(--icon-url) center / contain no-repeat;
   mask: var(--icon-url) center / contain no-repeat;
 }
+.icon-16 { width: 16px; height: 16px; }
 .icon-32 { width: 32px; height: 32px; }
 
 .i-chevron-left { --icon-url: url("../assets/duotone-icons/arrows/chevron-left.svg"); }
@@ -268,6 +272,7 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 .i-briefcase { --icon-url: url("../assets/duotone-icons/education/briefcase-01.svg"); }
 .i-data      { --icon-url: url("../assets/duotone-icons/development/data.svg"); }
 .i-zap       { --icon-url: url("../assets/duotone-icons/general/zap-fast.svg"); }
+.i-link-external { --icon-url: url("../assets/duotone-icons/general/link-external-02.svg"); }
 .i-code      { --icon-url: url("../assets/duotone-icons/development/code-browser.svg"); }
 
 /* Circular lime chip that holds an icon */
@@ -485,6 +490,28 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   color: var(--text-subtle);
   font-weight: 400;
 }
+
+/* The "Show credential" pill from Figma. Its hover outline is an inset
+   box-shadow rather than a border because Figma draws that stroke inside
+   the pill: a real 1.5px border would grow the box by 3px on hover and
+   nudge the entry below it. The 4px gap above comes from .edu-text. */
+.edu-credential {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface-muted);
+  color: var(--text-subtle);
+  border-radius: var(--radius-full);
+  padding: 4px 16px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: var(--lh-tsm);
+  text-decoration: none;
+  transition: box-shadow .15s ease;
+}
+.edu-credential:hover { box-shadow: inset 0 0 0 1.5px var(--border-strong); }
 
 .tools-lede {
   font-size: var(--text-xl);
