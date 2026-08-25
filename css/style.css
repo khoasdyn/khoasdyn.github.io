@@ -459,7 +459,11 @@ h3 { font-family: var(--font-display); font-weight: 500; }
 }
 .tools { grid-column: span 2; }
 
-.education { height: 100%; }
+/* Both cards fill the row rather than each stopping at its own content, so
+   the shorter one does not leave a notch of dark page beside the taller one.
+   The row is sized by whichever has more in it. */
+.education,
+.tools { height: 100%; }
 
 .edu-list {
   display: flex;
@@ -519,10 +523,15 @@ h3 { font-family: var(--font-display); font-weight: 500; }
   font-weight: 400;
 }
 
+/* Takes the height the card gained above and hands it to the rows, so the
+   tool cards grow to absorb it instead of leaving white space under them.
+   `1fr` rows also keep the two rows level when one label wraps to two lines. */
 .tool-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 12px;
+  flex: 1;
 }
 .tool {
   display: flex;
