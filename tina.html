@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tina — Case Study | Khoa Duong</title>
+<meta name="description" content="A two-week UX project on renting a room in Ho Chi Minh City. I surveyed 25 students and workers, found four things that waste their time, and designed an iOS app that answers each one.">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://khoasdyn.github.io/tina.html">
+<meta property="og:title" content="Tina — Case Study | Khoa Duong">
+<meta property="og:description" content="An iOS rental app for Ho Chi Minh City, designed in two weeks from a survey of 25 students and workers.">
+<meta property="og:image" content="https://khoasdyn.github.io/assets/images/profile-photo-og.jpg">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#09090B">
+<link rel="canonical" href="https://khoasdyn.github.io/tina.html">
+<link rel="icon" href="assets/images/logo-avatar.png">
+
+<link rel="preload" href="assets/fonts/alan-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/google-sans-flex-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<div class="page">
+
+  <!-- ============ BACK ============ -->
+  <a class="back-btn" href="index.html">
+    <i class="icon i-chevron-left" aria-hidden="true"></i>Back
+  </a>
+
+  <main class="cs-main" id="case-study">
+
+  <!-- ============ TITLE ============ -->
+  <header class="section cs-title">
+    <div class="tag-list">
+      <span class="tag">iOS App</span>
+      <span class="tag">Renting &amp; Housing</span>
+      <span class="tag">UX Research</span>
+    </div>
+
+    <div class="cs-title-text">
+      <h1>Tina: Renting a Room in Saigon Without the Surprises</h1>
+      <p>A two-week project on finding somewhere to live in Ho Chi Minh City. I surveyed 25 students and workers, found four things that reliably waste their time, and designed an app where each one has a place on the screen.</p>
+    </div>
+  </header>
+
+  <!-- ============ COVER ============
+       The real cover, the same file the homepage card uses. No lazy loading
+       here: it is the largest thing above the fold. -->
+  <div class="cs-figure cs-cover">
+    <img src="assets/project-case-study-images/tina/tina-cover.webp" width="1920" height="1080" fetchpriority="high" decoding="async" alt="Five Tina screens in iPhone frames: two home screens with an illustrated room and filter chips, the address search with the keyboard open, the search results list, and a room detail page">
+  </div>
+
+  <!-- ============ BODY ============
+       Eight media slots in reading order, following the arc of the project
+       itself: the overview board, the two research boards, the persona, the
+       journey map, the userflow, the paper wireframes, and the prototype board
+       at the end. Every file is a 1920x1080 board exported from Khoa's own
+       Figma deck, converted to lossless WebP at native size.
+
+       Every text block carries a heading. A block with no badge above it reads
+       as a loose offcut of the block before it, so the page does not use one. -->
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Project Overview</h2>
+    <div class="cs-prose">
+      <p>Tina is an iOS app for people looking for a long-term room in Ho Chi Minh City. There is no shortage of listings here. <strong>The hard part is working out which of them actually fits what you need and what you can pay</strong>, and that is worse if you have only just arrived in the city.</p>
+      <p>It was a course project with a two-week brief, and I was the only designer on it. That covered the whole arc: the survey, the persona and journey map, paper wireframes, the hi-fi screens, the clickable prototype, and testing it with people.</p>
+      <p>The interface is in Vietnamese because the renters it is for are Vietnamese. Prices are written the way people actually say them out loud, so a room is "4,5 tr/phòng" rather than 4,500,000 VND.</p>
+    </div>
+  </section>
+
+  <!-- Overview board — how the deck itself opens: three screens above the
+       problem statement, with the product, duration, role and responsibilities
+       spelled out underneath. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-overview.webp" width="1920" height="1080" alt="The opening board of the Tina deck: three phone screens on a red background above a problem statement, with Product, Duration, My Role and Responsibilities listed below" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">What the Survey Found</h2>
+    <div class="cs-prose">
+      <p>I ran a Google Form survey with about 25 students and workers in Ho Chi Minh City, asking what gets in their way when they are hiring a room. <strong>The point was not to collect opinions about rental apps, it was to find where the wasted time goes.</strong></p>
+      <p>Four answers came back often enough to design around. Room photos do not match the place when you turn up to view it. Costs turn up that were never in the listing. Descriptions of the amenities are thin. And the address is hard to actually find on a map.</p>
+      <p>All four have the same shape: <strong>you only discover the problem after you have already spent an afternoon on it.</strong> Every one of them costs a trip across the city. That framing is what the rest of the project is built on.</p>
+    </div>
+  </section>
+
+  <!-- Research method — the survey summary board, naming the method and the
+       sample before any finding is shown. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-research-summary.webp" width="1920" height="1080" alt="The user research summary board, tagged quantitative research, survey and Google Form, describing a survey of about 25 students and workers in Ho Chi Minh City" loading="lazy">
+  </div>
+
+  <!-- The four findings, as they came out of the survey. These four are the
+       spine of the whole page, so they sit directly under the method. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-pain-points.webp" width="1920" height="1080" alt="The four pain points from the survey, numbered one to four: room pictures, hidden costs, amenities and location" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Designing for One Renter</h2>
+    <div class="cs-prose">
+      <p>The persona is Ngoc Quyen, a 20-year-old in her first year at university who has just moved to Ho Chi Minh City. She wants to share a room with two close friends, somewhere she can cook to keep costs down, near her campus and not too far from the centre.</p>
+      <p><strong>Picking a sharer rather than a single renter changed what the app had to say.</strong> Three people splitting a room care about how many the place is allowed to hold, and they care about a per-person cost rather than a headline rent. Both of those ended up on the room detail screen.</p>
+    </div>
+  </section>
+
+  <!-- Persona board — the one renter every later decision is measured against. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-persona.webp" width="1920" height="1080" alt="The persona board for Ngoc Quyen, a twenty-year-old first-year student, with her problem statement, goals and frustrations listed beside her photo" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Where the Search Really Ends</h2>
+    <div class="cs-prose">
+      <p>Mapping the journey was the thing that moved the design most, because it made one point obvious: <strong>the search does not finish inside the app.</strong> It finishes at a house-viewing, at an address, with a contract.</p>
+      <p>The map runs from downloading the app through filtering, choosing a room, calling the owner, agreeing a time and going to see it. Only the first three of those happen on screen. The last three happen in the real city, on a motorbike, with a phone in your hand.</p>
+      <p>That is where the phrase "disappointed when the owner is not available" sits on the map. <strong>Once the search leaves the screen, the app's job is to hand the trip over cleanly rather than hold on to it</strong>, which is what the location and contact decisions below are both doing.</p>
+    </div>
+  </section>
+
+  <!-- Journey map — the whole trip end to end, and the board that argues the
+       search does not finish inside the app. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-journey-map.webp" width="1920" height="1080" alt="The user journey map, with rows for actions, task list, feelings and improvement opportunities across seven stages from getting the app to the house-viewing" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Flow First, Then Paper</h2>
+    <div class="cs-prose">
+      <p>The userflow came before any screen. It is deliberately small: open the app, search a location, preview rooms, browse, open the details, decide whether to view, contact the owner. <strong>Two decision points in the whole product</strong>, and everything else is a straight line between them.</p>
+      <p>Then paper, and plenty of it, before anything went into Figma. Working by hand is fast enough that a bad layout is cheap to throw away, which is exactly what happened to the first version of the filters.</p>
+    </div>
+  </section>
+
+  <!-- Userflow — the whole product as a diagram, with only two decision
+       points in it. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-userflow.webp" width="1920" height="1080" alt="The Tina userflow diagram, running from opening the app through searching, previewing and browsing rooms to two decision diamonds and contacting the room owner" loading="lazy">
+  </div>
+
+  <!-- Paper wireframes — the room detail worked out by hand, and the earlier
+       filter layout that testing later replaced. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-paper-wireframe.webp" width="1920" height="1080" alt="Hand-drawn paper wireframes: the room detail screen with its photo grid and call buttons, and two sheets working out the filter and search layouts" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Putting the Costs on Screen</h2>
+    <div class="cs-prose">
+      <p><strong>Every service cost gets its own cell on the room detail page, with a number in it.</strong> Electricity per unit, water per person, parking per vehicle, wifi per month, the deposit in months, the lift per room. Six boxes, all filled in, sitting above the description rather than buried inside it.</p>
+      <p>This is the direct answer to the second thing the survey found. A hidden cost is not usually hidden on purpose, it is just left out of a listing that only had room for the rent. So I gave it room. Six small numbers are the difference between a rent you can compare and a rent you have to go and ask about.</p>
+      <p>The same thinking put the occupancy limit and the room size next to the price. If three people are splitting the rent, <strong>the number they actually need is the one the listing never prints.</strong></p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Filters Where You Search</h2>
+    <div class="cs-prose">
+      <p>In the paper version the filters sat behind an Add filter button, opening panels for distance and price range. It is the tidier layout and it is what most rental apps do.</p>
+      <p><strong>Testing killed it. People simply did not find the filters there.</strong> They scrolled the list of recent rooms instead, which is the slowest possible way to use the app and the one thing the whole product was supposed to save them from.</p>
+      <p>So price, room type, size and furnishing became chips on the home screen, above the listings and impossible to miss. Once a filter is set it stays visible as a chip with an x on it, so the answer to "why am I only seeing four rooms" is always on screen. It is a busier home screen than the one I drew on paper, and it is the right one.</p>
+    </div>
+  </section>
+
+  <!-- Prototype board — the finished screens wired together, showing how small
+       the product is once the filter panels are folded into the home screen. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/tina/tina-prototype.webp" width="1920" height="1080" alt="The high-fidelity prototype board in Figma, with every Tina screen laid out and connected by prototype links, from the home screen through the filters and search to the room detail" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">After You Pick a Room</h2>
+    <div class="cs-prose">
+      <p><strong>A room's location is shown as a distance and a ride time, not just an address.</strong> "3km" and "13 minutes by motorbike" answer the question someone is actually asking, which is whether they can do this trip twice a day. A street name in a district you have never been to answers nothing, and that was the fourth finding in the survey.</p>
+      <p><strong>Contacting the owner is a phone number with a copy button and a call button, not a chat.</strong> An in-app inbox is the obvious feature to build and the wrong one here: rooms in Vietnam get agreed on the phone, often within the hour, and a message sitting unread in an app the landlord installed once is how you lose the room. The journey map already said people get disappointed when an owner is not available, so the design points at the fastest way to reach them rather than adding a slower one.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">What the Design Assumes</h2>
+    <div class="cs-prose">
+      <p>The weak point is not on any screen. <strong>The whole design assumes landlords will fill in the costs honestly.</strong> Six cells for electricity, water, parking, wifi, deposit and lift only fix anything if somebody types the real numbers into them, and the person typing is the person who benefits from a low headline rent.</p>
+      <p>That is the part I would work on next, and it is a product problem rather than a screen problem. Ratings and reviews are in the design, and past tenants correcting a listing is probably where the answer starts. In two weeks I designed the demand side of this properly and never seriously designed the supply side.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ CONTACT ============
+       The same block as the homepage footer apart from the nav button at the
+       bottom, which is the "Back to home" variant here and "Back to top" there. -->
+  <footer class="contact">
+    <div class="contact-body">
+      <h2>Let's connect!</h2>
+
+      <div class="contact-cards">
+        <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+           target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
+          <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+        </a>
+        <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+           aria-label="Email me at khoasdyn@gmail.com">
+          <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+        </a>
+        <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+           target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
+          <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+        </a>
+      </div>
+    </div>
+
+    <!-- The "Back to home" variant, which is the one a case study carries.
+         It repeats the back button at the top of the page on purpose, so the
+         reader does not have to scroll back up to leave. -->
+    <a class="contact-nav" href="index.html">
+      <i class="icon i-chevron-left" aria-hidden="true"></i>Back to home
+    </a>
+  </footer>
+
+</div>
+</body>
+</html>

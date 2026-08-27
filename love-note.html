@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Note — Case Study | Khoa Duong</title>
+<meta name="description" content="A self-initiated concept for a couples app that does two things and stops there: a counter for the days you have been together, and countdowns to the dates that are coming.">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://khoasdyn.github.io/love-note.html">
+<meta property="og:title" content="Love Note — Case Study | Khoa Duong">
+<meta property="og:description" content="A two-screen couples app, designed in Figma. A counter for the days behind you and countdowns to the ones ahead.">
+<meta property="og:image" content="https://khoasdyn.github.io/assets/images/profile-photo-og.jpg">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#09090B">
+<link rel="canonical" href="https://khoasdyn.github.io/love-note.html">
+<link rel="icon" href="assets/images/logo-avatar.png">
+
+<link rel="preload" href="assets/fonts/alan-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/google-sans-flex-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<div class="page">
+
+  <!-- ============ BACK ============ -->
+  <a class="back-btn" href="index.html">
+    <i class="icon i-chevron-left" aria-hidden="true"></i>Back
+  </a>
+
+  <main class="cs-main" id="case-study">
+
+  <!-- ============ TITLE ============ -->
+  <header class="section cs-title">
+    <div class="tag-list">
+      <span class="tag">Mobile App</span>
+      <span class="tag">Concept</span>
+      <span class="tag">Figma</span>
+    </div>
+
+    <div class="cs-title-text">
+      <h1>Love Note: A Couples App That Only Does Two Things</h1>
+      <p>A self-initiated concept for couples. One screen counts the days you have already spent together, the other keeps the photos. Everything I could have added, I left out on purpose.</p>
+    </div>
+  </header>
+
+  <!-- ============ COVER ============
+       The real cover, the same file the homepage card uses. No lazy loading
+       here: it is the largest thing above the fold. -->
+  <div class="cs-figure cs-cover">
+    <img src="assets/project-case-study-images/love-note/love-note-cover.webp" width="1920" height="1080" fetchpriority="high" decoding="async" alt="The Love Note title board: the two-hearts app icon and the app name beside three phone screens showing the memos grid, the countdown cards and the first love date step">
+  </div>
+
+  <!-- ============ BODY ============
+       Three media slots in reading order: the home screen first because the
+       counter is the argument, then the onboarding that feeds it, then the
+       memo and event screens. Each is a 1920x1080 board from Khoa's Figma
+       file, converted to lossless WebP at native size.
+
+       Every text block carries a heading. A block with no badge above it reads
+       as a loose offcut of the block before it, so the page does not use one. -->
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Project Overview</h2>
+    <div class="cs-prose">
+      <p>Love Note is a phone app for two people. It shows how long they have been together, counts down to the dates that matter next, and keeps their photos in one place. That is the entire product.</p>
+      <p><strong>It was my own idea and it exists only in Figma.</strong> There is no prototype and no build, and I never put it in front of a real couple. The mockups use placeholder faces and, in the onboarding, placeholder copy that was never written.</p>
+      <p>So this is a page about design decisions rather than results. What follows is what I chose to put on screen, what I chose to leave off, and why.</p>
+    </div>
+  </section>
+
+  <!-- Home screen — the counter above the fold, then the countdown cards
+       below it. This is the board the whole page argues from. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/love-note/love-note-home-screen.webp" width="1920" height="1080" alt="The Love Note home screen: a greeting with both partners' names and photos above a counter reading two years, eleven months and nineteen days, with coloured countdown cards for Valentine's, a watch-together date, a holiday and a birthday below it" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">The Counter Comes First</h2>
+    <div class="cs-prose">
+      <p>The home screen opens on both faces and one line: two years, eleven months, nineteen days. Nothing is above it and nothing shares the space with it.</p>
+      <p><strong>That number is the reason to open the app at all.</strong> The countdowns and the photos are useful, but they are not why someone installs a thing like this. If the counter were third on the screen, under a list of events, the app would be a calendar that happens to know your anniversary.</p>
+      <p>Putting it first also decides the tone of everything under it. The greeting is by time of day, the two photos sit in dashed rings like something pinned up, and the confetti sits at the bottom of the card. The utility starts below that line, not above it.</p>
+    </div>
+  </section>
+
+  <!-- Onboarding — four steps, and the reason the home screen can exist at
+       all. The intro copy is still lorem ipsum in the source file. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/love-note/love-note-onboarding.webp" width="1920" height="1080" alt="The four onboarding steps: an illustrated intro screen with a Get started button, then Name 1 with an add photo circle, Name 2 with a photo added and the keyboard open, and First Love Date with a date field and a Done button" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Three Facts, No Skip</h2>
+    <div class="cs-prose">
+      <p>Onboarding is four screens and asks for three things: your name and photo, your partner's name and photo, and the date you started. There is no skip on any of them.</p>
+      <p><strong>The app is empty without all three.</strong> No date means no counter, which means the home screen has nothing on it worth looking at. No photos means the greeting has two grey circles in it. Every screen I had designed depended on information only the person could give me, so asking for it up front was not a choice about onboarding, it was a consequence of the home screen.</p>
+      <p>The order matters too. The date is asked last, on its own screen, because it is the one thing someone might have to stop and think about.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Events You Can Scan</h2>
+    <div class="cs-prose">
+      <p>Countdowns are coloured tiles, two to a row, each with a big 3D icon, a name, a date and a pill saying how many days are left. Creating one lets you pick which icon it gets.</p>
+      <p><strong>You scan these, you do not read them.</strong> There are only ever a handful, and a colour and a picture identify one faster than its title does. Once you know Valentine's is the pink card with the hearts, you stop reading the words on it entirely.</p>
+      <p>A list of rows with dates on the right would hold more events in the same space. It would also have looked like every reminders app on the phone, and it would have made finding one a matter of reading rather than glancing.</p>
+    </div>
+  </section>
+
+  <!-- Memo and event screens — the memo detail, the add-event form with its
+       theme picker, and the add-memo form. Shows that both forms are the
+       same shape. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/love-note/love-note-memo-and-event-screens.webp" width="1920" height="1080" alt="Three further screens: a memo detail with a photo above its written note and date, the Add event form with name, date and a row of four icon themes to choose from, and the Add memo form with a photo slot, name, date and description" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Two Tabs and No More</h2>
+    <div class="cs-prose">
+      <p>The tab bar has Home and Memos in it. There is no profile tab, no settings tab and no discover tab.</p>
+      <p><strong>A third tab would have been padding.</strong> The app does two things, and the moment I add a place to put a fourth thing I have to invent a fourth thing to put there. The names and the start date already get set in onboarding, and editing them is rare enough that it does not need permanent space at the bottom of every screen.</p>
+      <p>The two forms behind those tabs are built the same way for the same reason. Add an event and add a memo both ask for a name and a date, then one extra field: an icon for the event, a photo and a description for the memo. Learn one and you have learned both.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">What It Never Got</h2>
+    <div class="cs-prose">
+      <p><strong>No couple ever used this.</strong> It was never tested, never clicked through and never built, so every decision above is a designer's argument rather than something a person confirmed.</p>
+      <p>The one I would want to test first is the restraint. Two tabs is a defensible position and it is also the position most likely to be wrong, because an app you open for a number you already know is an app that is easy to stop opening. Whether the counter is enough to bring someone back on a Tuesday is exactly the sort of thing you cannot settle by drawing it.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ CONTACT ============
+       The same block as the homepage footer apart from the nav button at the
+       bottom, which is the "Back to home" variant here and "Back to top" there. -->
+  <footer class="contact">
+    <div class="contact-body">
+      <h2>Let's connect!</h2>
+
+      <div class="contact-cards">
+        <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+           target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
+          <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+        </a>
+        <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+           aria-label="Email me at khoasdyn@gmail.com">
+          <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+        </a>
+        <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+           target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
+          <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+        </a>
+      </div>
+    </div>
+
+    <!-- The "Back to home" variant, which is the one a case study carries.
+         It repeats the back button at the top of the page on purpose, so the
+         reader does not have to scroll back up to leave. -->
+    <a class="contact-nav" href="index.html">
+      <i class="icon i-chevron-left" aria-hidden="true"></i>Back to home
+    </a>
+  </footer>
+
+</div>
+</body>
+</html>
