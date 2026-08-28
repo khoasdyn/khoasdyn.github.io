@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Daily Gold Rush — Case Study | Khoa Duong</title>
+<meta name="description" content="A self-directed UX exercise: one limited-time reward campaign designed on both sides, a claim flow in a mobile game and the desktop settings page an admin runs it from.">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://khoasdyn.github.io/daily-gold-rush.html">
+<meta property="og:title" content="Daily Gold Rush — Case Study | Khoa Duong">
+<meta property="og:description" content="One limited-time reward campaign designed on both sides: the claim flow players see in a mobile game, and the settings page an admin runs it from.">
+<meta property="og:image" content="https://khoasdyn.github.io/assets/images/profile-photo-og.jpg">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#09090B">
+<link rel="canonical" href="https://khoasdyn.github.io/daily-gold-rush.html">
+<link rel="icon" href="assets/images/logo-avatar.png">
+
+<link rel="preload" href="assets/fonts/alan-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/google-sans-flex-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<div class="page">
+
+  <!-- ============ BACK ============ -->
+  <a class="back-btn" href="index.html">
+    <i class="icon i-chevron-left" aria-hidden="true"></i>Back
+  </a>
+
+  <main class="cs-main" id="case-study">
+
+  <!-- ============ TITLE ============ -->
+  <header class="section cs-title">
+    <div class="tag-list">
+      <span class="tag">Mobile App</span>
+      <span class="tag">Admin Dashboard</span>
+      <span class="tag">Figma</span>
+    </div>
+
+    <div class="cs-title-text">
+      <h1>Daily Gold Rush: A Limited-Time Reward Campaign for Players and Admins</h1>
+      <p>One set of rules, two products. A player claims coins once a day inside a game, and an admin sets the schedule, the reward and the eligibility that decide whether they can. Almost every decision here is about states rather than screens.</p>
+    </div>
+  </header>
+
+  <!-- ============ COVER ============
+       The real cover, the same file the homepage card uses. No lazy loading
+       here: it is the largest thing above the fold. -->
+  <div class="cs-figure cs-cover">
+    <img src="assets/project-case-study-images/daily-gold-rush/thumbnail.webp" width="1600" height="1200" fetchpriority="high" decoding="async" alt="The two sides of the project side by side: an iPhone showing a list of reward events with a Claim button, in front of a desktop browser window showing the Daily Gold Rush campaign settings page with an Active status">
+  </div>
+
+  <!-- ============ BODY ============
+       Reading order runs player side first, then admin side, because the
+       admin page only makes sense once you know what it is controlling.
+
+       Five media slots: three player shots (the happy path, the full state
+       set, the annotated Figma board), then two admin shots (validation and
+       the live campaign, then the two destructive confirmations).
+
+       Every text block carries a heading. A block with no badge above it reads
+       as a loose offcut of the block before it, so the page does not use one. -->
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Project Overview</h2>
+    <div class="cs-prose">
+      <p>Daily Gold Rush is a limited-time reward campaign. Players open a mobile game, play a set number of rounds at a minimum stake, and claim a coin payout once a day until the campaign ends. An admin creates that campaign in a desktop settings page, decides when it runs and what it pays, and can pause or end it while it is live.</p>
+      <p><strong>It was a brief I set myself, and it exists only in Figma.</strong> There is no prototype and no build, nobody has used it, and the numbers on screen are made up. So this is a page about design decisions, not about results.</p>
+      <p>The work sits almost entirely in the states. A reward has to be claimable, blocked, already claimed today or expired, and a campaign has to be Draft, Active, Paused or Ended, and every one of those has to be obvious without a manual. I wrote the assumptions and the edge cases out on the canvas beside the screens, because the awkward ones are what the design has to survive.</p>
+    </div>
+  </section>
+
+  <!-- The player happy path — the events list, the claimable detail screen
+       and the confirmation that follows a claim. Sets up what the rest of the
+       player section argues about. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/daily-gold-rush/mobile-app-screens-01.webp" width="1600" height="900" alt="Three iPhone screens: the events list with a coin balance and four reward cards, the Daily Gold Rush detail screen showing 5,000 coins a day with a completed 10 of 10 rounds bar, and the same screen with a Reward Earned card confirming plus 5,000 coins" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">The Button Is the Status</h2>
+    <div class="cs-prose">
+      <p>The events list holds five campaigns at once and no two of them are at the same point in their life. One is claimable right now, one has already been claimed today, one is still short of its round target, one does not start until July, and one ended in June.</p>
+      <p><strong>None of them carries a status label.</strong> The button says Claim, or Claimed, or Locked, or Starts 01 Jul 2026, or Ended 20 Jun 2026, and that is the entire state model. A player reads one thing per row instead of reading a chip, reading a button, and working out which of the two to believe.</p>
+      <p>A separate status field would have been easier to build and worse to trust. The moment state lives in two places, a card can say Locked beside a button that says Claim, and the player is the one who has to resolve it. Putting the state inside the control means it can only ever say one thing.</p>
+      <p>The same rule carries into the detail screen. Its bottom button is claimable, blocked, or a claimed status line, so the player never has to scroll up to find out where they stand.</p>
+    </div>
+  </section>
+
+  <!-- The full player state set — the list plus the claimable, claimed, not
+       claimable and expired detail screens overlapping. The clearest single
+       view of how much the CTA is doing. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/daily-gold-rush/ending.webp" width="1600" height="900" alt="Overlapping mockups of the player screens: the events list with Claim, Claimed, Locked, Starts and Ended cards, beside detail screens showing a claimed state reading Claimed come back in 14h 19m, a Reward Earned confirmation, and a blocked state at 6 of 10 rounds with a Play 4 more rounds button" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">A Countdown, Not a Lockout</h2>
+    <div class="cs-prose">
+      <p>Every state that is not claimable carries a clock. While the player is still working towards the target it reads Resets in 14h 19m. Once they have claimed, the same field becomes Next reward in 14h 19m, and the button itself turns into a line that says Claimed. Come back in 14h 19m.</p>
+      <p><strong>The same number can be read as a penalty or as an appointment, and the wording is what decides which.</strong> Telling someone they have already claimed today explains what they cannot do. Telling them to come back in fourteen hours answers the only question they actually have, which is when this is worth opening again.</p>
+      <p>Where it sits matters as much as what it says. The countdown replaces the button rather than appearing as a banner at the top, so the answer lands in the spot the player just tapped and their eye is already on.</p>
+    </div>
+  </section>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Play 4 More Rounds</h2>
+    <div class="cs-prose">
+      <p>A player at six of ten rounds is not eligible. The standard answer is a greyed-out Claim button, probably with a tooltip explaining the rule.</p>
+      <p><strong>A disabled button states the rule and hides the remedy.</strong> So the blocked state keeps a live button and changes what it says: Play 4 more rounds. Above it the bar reads 6/10 rounds and In Progress, and under that sits the full condition, ten rounds a day at a minimum of fifty credits a round.</p>
+      <p>The number in the label is the gap and not the target. Four is a smaller ask than ten and it is the only figure the player still has to act on, so it is the one the button carries.</p>
+      <p>Expired is the one state that does the opposite. When a campaign is over the screen drops the progress bar and the claim button entirely and keeps only the dates it ran, with Back to home as the single way out. There is no action left, so nothing on screen should imply there is one.</p>
+    </div>
+  </section>
+
+  <!-- The player-side Figma canvas, showing all six frames in order with
+       their annotations, plus the assumptions and edge case notes that sit to
+       the left of them. Evidence of the working method rather than a screen. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/daily-gold-rush/figma-screenshot-mobile-app.webp" width="3456" height="2088" alt="The Figma canvas for the player side: an assumptions note and an edge cases note on the left, then six frames in a row for the home list, the claimable detail, the reward confirmation, the not claimable state, the claimed state and the expired state, each with a yellow annotation below it" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Publish Is the Only Gate</h2>
+    <div class="cs-prose">
+      <p>The admin page has two buttons and they do different jobs. Save Changes stores whatever has been typed and never touches the status, so a saved campaign is still a Draft and nobody sees it. Publish validates the form and goes live in the same click, which is why it does not need a Save step of its own.</p>
+      <p><strong>Publish stays disabled until every required field is filled and valid.</strong> The date pickers help before it gets that far, refusing past dates and greying out any end date on or before the chosen start, so the most common way to break a campaign is closed at the input rather than caught at the end.</p>
+      <p>Validating at one door instead of everywhere is the point. A campaign that reaches players with no end date, or an end that falls before its start, is not a form error, it is money leaving the business on a schedule nobody agreed to. Everything else on the page can be half finished and saved, because a Draft costs nothing.</p>
+    </div>
+  </section>
+
+  <!-- Admin validation and the live campaign — required-field errors blocking
+       a draft on the left, an Active campaign with its claim count on the
+       right. Shows both ends of the publish gate. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/daily-gold-rush/admin-dashboard-screens-01.webp" width="1600" height="900" alt="Two admin views: a draft campaign with empty start and end date fields outlined in red reading This field is required, and the live Daily Gold Rush settings page showing an Active status with 1,240 claims so far beside End Campaign and Pause buttons" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Pause and End Warn Differently</h2>
+    <div class="cs-prose">
+      <p>A live campaign offers two destructive actions side by side, and they are not the same size. Both confirmations open with the same consequence, that players stop seeing the reward immediately, and then they separate.</p>
+      <p><strong>Pause says you can resume any time before the end date. End says this cannot be undone.</strong> The buttons follow the wording: pausing confirms on yellow, ending confirms on red.</p>
+      <p>One shared "Are you sure?" would have been less work and it would have taught the admin the wrong thing. Make the reversible action feel as heavy as the permanent one and both dialogs become something to click through, which is exactly when the permanent one gets clicked by accident. An admin pausing a campaign that has already paid out 1,240 claims needs to know, in the dialog, that pausing is a decision they can take back.</p>
+    </div>
+  </section>
+
+  <!-- The two confirmations, plus the Draft, Paused and Ended variants of the
+       status block behind them. The clearest shot of how the wording and the
+       button colour split between the reversible and the permanent action. -->
+  <div class="cs-figure">
+    <img src="assets/project-case-study-images/daily-gold-rush/admin-dashboard-screens-02.webp" width="1600" height="1200" alt="Admin campaign settings screens arranged at an angle, with two modal dialogs in front: Pause this campaign with a yellow Pause campaign button, and End this campaign warning that it cannot be undone with a red End campaign button" loading="lazy">
+  </div>
+
+  <section class="section cs-block">
+    <h2 class="cs-badge">Ended Is Read-Only</h2>
+    <div class="cs-prose">
+      <p>When the end date passes the status flips to Ended on its own, and the page changes character. Every field greys out, Publish, Pause and Resume all disappear, and the status block stops describing settings and starts reporting: ran 20 to 26 June, 3,480 total claims.</p>
+      <p><strong>The page stops being a form and becomes a receipt.</strong> Editing a campaign that has already paid out means the settings and the payouts no longer agree, and there is no reading of that which helps anyone. The reward value shown next to 3,480 claims has to be the value those claims were actually paid at.</p>
+      <p>It also makes Ended the only screen on either side of this project that exists purely to be looked at. Everything else, on the phone and on the desktop, is there so somebody can change something.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ CONTACT ============
+       The same block as the homepage footer apart from the nav button at the
+       bottom, which is the "Back to home" variant here and "Back to top" there. -->
+  <footer class="contact">
+    <div class="contact-body">
+      <h2>Let's connect!</h2>
+
+      <div class="contact-cards">
+        <a class="contact-card contact-substack" href="https://substack.com/@khoasdyn"
+           target="_blank" rel="noopener noreferrer" aria-label="Read my writing on Substack: substack.com/@khoasdyn">
+          <img src="assets/logos/substack-logo.svg" alt="" width="21" height="24">substack.com/@khoasdyn
+        </a>
+        <a class="contact-card contact-email" href="mailto:khoasdyn@gmail.com"
+           aria-label="Email me at khoasdyn@gmail.com">
+          <img src="assets/logos/email-icon.svg" alt="" width="24" height="24">khoasdyn@gmail.com
+        </a>
+        <a class="contact-card contact-linkedin" href="https://www.linkedin.com/in/khoa-duong-517a1512a/"
+           target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn: in/khoa-duong-517a1512a/">
+          <img src="assets/logos/linkedin-logo.svg" alt="" width="24" height="24">in/khoa-duong-517a1512a/
+        </a>
+      </div>
+    </div>
+
+    <!-- The "Back to home" variant, which is the one a case study carries.
+         It repeats the back button at the top of the page on purpose, so the
+         reader does not have to scroll back up to leave. -->
+    <a class="contact-nav" href="index.html">
+      <i class="icon i-chevron-left" aria-hidden="true"></i>Back to home
+    </a>
+  </footer>
+
+</div>
+</body>
+</html>
